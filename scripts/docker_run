@@ -1,0 +1,12 @@
+#! /bin/bash
+
+ROOT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}/../" )" &> /dev/null && pwd )"
+NAME=$1
+
+docker run -it \
+    --name=$NAME \
+    -v ${ROOT_DIR}/workspace:/root/workspace \
+    --net=host \
+    --privileged \
+    --runtime nvidia \
+    zeroshotrt

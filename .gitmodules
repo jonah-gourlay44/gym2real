@@ -1,0 +1,10 @@
+[submodule "libi2c"]
+	path = libi2c
+	url = https://github.com/amaork/libi2c.git
+[submodule "JetsonGPIO"]
+	path = JetsonGPIO
+	url = https://github.com/pjueon/JetsonGPIO.git
+[submodule "onnxruntime"]
+	path = onnxruntime
+	url = https://github.com/Microsoft/onnxruntime
+	branch = tags/v1.9.1
