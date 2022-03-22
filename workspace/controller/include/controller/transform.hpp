@@ -39,18 +39,16 @@
 //     CONTROL_EFFORT
 // };
 
-template <class T1=float, class T2=float>
+template <class T1 = float, class T2 = float>
 struct RemapRule
 {
     RemapRule(std::function<void(T1 *, T2 *)> lambda) : lambda(lambda){};
     std::function<void(T1 *, T2 *)> lambda;
     void apply(T1 *in_ptr, T2 *out_ptr) { lambda(in_ptr, out_ptr); };
-protected:
-    RemapRule(){};
 };
 
-template <class T1=float, class T2=float>
-struct RangeRemapRule : RemapRule<T1,T2>
+template <class T1 = float, class T2 = float>
+struct RangeRemapRule : public RemapRule<T1, T2>
 {
     bool invert = false;
     std::pair<T1, T1> from_range;
@@ -59,14 +57,12 @@ struct RangeRemapRule : RemapRule<T1,T2>
     std::vector<size_t> to_idx;
 
     RangeRemapRule(
-        const std::pair<T1, T1>& from_range,
-        const std::pair<T2, T2>& to_range,
-        const std::vector<size_t>& from_idx,
-        const std::vector<size_t>& to_idx,
-        bool invert) : from_range(from_range), to_range(to_range), from_idx(from_idx), to_idx(to_idx), invert(invert)
-    {
-        this->lambda = [&](T1 *in_ptr, T2 *out_ptr)
-        {
+        const std::pair<T1, T1> &from_range,
+        const std::pair<T2, T2> &to_range,
+        const std::vector<size_t> &from_idx,
+        const std::vector<size_t> &to_idx,
+        bool invert) : RemapRule<T1, T2>([from_range, to_range, from_idx, to_idx, invert](T1 *in_ptr, T2 *out_ptr)
+                                         {
             for (size_t i = 0; i < from_idx.size(); i++)
             {
                 size_t from = from_idx[i];
@@ -75,9 +71,7 @@ struct RangeRemapRule : RemapRule<T1,T2>
                     out_ptr[to] = to_range.second + (in_ptr[from] - from_range.first) * (to_range.first - to_range.second) / (from_range.second - from_range.first);
                 else
                     out_ptr[to] = to_range.first + (in_ptr[from] - from_range.first) * (to_range.second - to_range.first) / (from_range.second - from_range.first);
-            }
-        };
-    };
+            } }){};
 };
 
 // template <class T1, class T2>
@@ -116,7 +110,7 @@ struct RangeRemapRule : RemapRule<T1,T2>
  *
  */
 
-template <class T1=float, class T2=float>
+template <class T1 = float, class T2 = float>
 struct TransformRule
 {
     T1 *from_buffer;

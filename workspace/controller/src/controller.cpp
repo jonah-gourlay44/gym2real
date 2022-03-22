@@ -22,7 +22,7 @@ int main(int argc, char **argv)
     imu_quaternion[2] = 0;
     imu_quaternion[3] = 1;
     motor_position[0] = 0;
-    motor_position[1] = 1;
+    motor_position[1] = 0;
     motor_command[0] = 0;
     motor_command[1] = 0;
 
@@ -71,10 +71,14 @@ int main(int argc, char **argv)
         false);
     post_transforms.emplace_back(buffers.second, motor_command, motor_command_rule);
 
+    // Add transforms to controller
+    model_controller.addTransforms(pre_transforms,post_transforms);
+
     // Now that setup is done, we can run the control step
     model_controller.run();
     auto val = buffers.second[0];
     cout << val << endl;
+    cout << motor_command[0] << " " << motor_command[1] << endl;
 
     return 0;
 }
