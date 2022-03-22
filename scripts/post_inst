@@ -3,3 +3,4 @@
 echo 'deb https://repo.download.nvidia.com/jetson/rt-kernel r32.6 main' >> /etc/apt/sources.list.d/nvidia-l4t-apr-source.list
 apt update && sudo apt install nvidia-l4t-kernel nvidia-l4t-rt-kernel-headers
 /opt/nvidia/jetson-io/config-by-function.py -o dtb 1="pwm0 pwm1"
+dockerd --default-runtime nvidia

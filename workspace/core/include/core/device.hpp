@@ -1,5 +1,4 @@
-#ifndef DEVICE_H_
-#define DEVICE_H_
+#pragma once
 
 #include <i2c/i2c.h>
 
@@ -34,12 +33,15 @@ public:
         , sda_pin_(sda_pin)
     {}
 
-    ~ConnectionI2C() {}
+    ~ConnectionI2C() 
+    {
+        i2c_close(bus_);
+    }
 
     bool connect() override
     {
-        std::string sda_bus = sda_map.at(sda_pin);
-        std::string scl_bus = scl_map.at(scl_pin);
+        std::string sda_bus = sda_map.at(sda_pin_);
+        std::string scl_bus = scl_map.at(scl_pin_);
 
         if (sda_bus != scl_bus) {
             printf("Pins are from mismatched I2C buses.\n");
@@ -48,7 +50,7 @@ public:
         }
 
         if ((bus_ = i2c_open(sda_bus.c_str())) == -1) {
-            printf("Failed to opend the device [%s].\n", sda_bus.c_str());
+            printf("Failed to open the device [%s].\n", sda_bus.c_str());
             initilized_ = false;
             return false;
         }
@@ -110,5 +112,3 @@ std::map<int, std::string> ConnectionI2C::scl_map = {
     {28, "/dev/i2c-0"},
     {5, "/dev/i2c-1"}
 };
-
-#endif
