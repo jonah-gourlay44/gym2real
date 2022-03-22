@@ -39,7 +39,7 @@
 //     CONTROL_EFFORT
 // };
 
-template <class T1, class T2>
+template <class T1=float, class T2=float>
 struct RemapRule
 {
     RemapRule(std::function<void(T1 *, T2 *)> lambda) : lambda(lambda){};
@@ -49,7 +49,7 @@ protected:
     RemapRule(){};
 };
 
-template <class T1, class T2>
+template <class T1=float, class T2=float>
 struct RangeRemapRule : RemapRule<T1,T2>
 {
     bool invert = false;
@@ -116,7 +116,7 @@ struct RangeRemapRule : RemapRule<T1,T2>
  *
  */
 
-template <class T1, class T2>
+template <class T1=float, class T2=float>
 struct TransformRule
 {
     T1 *from_buffer;
