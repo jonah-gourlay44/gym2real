@@ -48,7 +48,12 @@ int main(int argc, char **argv)
     pre_transforms.emplace_back(imu_quaternion, buffers.first, quaternion_rule);
 
     // Observation 1 is last action
-    RangeRemapRule<> last_action_rule(pair<float, float>(-1., 1.), pair<float, float>(-1., 1.), {0}, {1}, false);
+    RangeRemapRule<> last_action_rule(
+        {-1,1}, 
+        {-1,1}, 
+        {0}, 
+        {1}, 
+        false);
     pre_transforms.emplace_back(buffers.second, buffers.first, last_action_rule);
 
     // Observation 2 is average of encoder positions
@@ -64,8 +69,8 @@ int main(int argc, char **argv)
     float max_velocity = 17.8;
     float output_scale = 1.5;
     RangeRemapRule<> motor_command_rule(
-        pair<float, float>(-1., 1.),
-        pair<float, float>(-max_velocity * output_scale, max_velocity * output_scale),
+        {-1,1},
+        {-max_velocity * output_scale, max_velocity * output_scale},
         {0, 0},
         {0, 1},
         false);
