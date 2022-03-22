@@ -32,8 +32,8 @@ public:
         observations_(observations), 
         actions_(actions)
     {
-        input_buffer_ = new float[observations];
-        output_buffer_ = new float[actions];
+        input_buffer_ = new float[observations]();
+        output_buffer_ = new float[actions]();
     };
 
     ~BaseController(){
@@ -103,8 +103,8 @@ public:
 
         auto memory_info = Ort::MemoryInfo::CreateCpu(OrtDeviceAllocator, OrtMemTypeCPU);
 
-        input_tensor_ = Ort::Value::CreateTensor<float>(memory_info, input_buffer_, observations_ * sizeof(float), input_shape_.data(), input_shape_.size());
-        output_tensor_ = Ort::Value::CreateTensor<float>(memory_info, output_buffer_, actions_ * sizeof(float), output_shape_.data(), output_shape_.size());
+        input_tensor_ = Ort::Value::CreateTensor<float>(memory_info, input_buffer_, observations_, input_shape_.data(), input_shape_.size());
+        output_tensor_ = Ort::Value::CreateTensor<float>(memory_info, output_buffer_, actions_, output_shape_.data(), output_shape_.size());
         return 0;
     };
 

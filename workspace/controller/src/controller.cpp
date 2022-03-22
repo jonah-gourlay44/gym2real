@@ -1,17 +1,33 @@
 #include <controller/transform.hpp>
 #include <controller/controller.hpp>
+#include <controller/memory_manager.hpp>
 
 using namespace std;
 int main(int argc, char **argv)
-{   
-    // Setup buffers
-    // TODO: ROS
-    float quaternion_tmp[4] = {0, 0, 0, 1};
-    float position_tmp[2] = {0., 1.};
-    float motor_command[2] = {0, 0};
+{      
+    // Create memory manager (creates buffers and controllers from config.yaml) and lock memory
+    MemoryManager memory("cfg/config.yaml");
 
-    // Create controller and get input/output buffers
-    OnnxController model_controller(3, 1, "Twip.pth.onnx");
+    // Get shared memory buffers
+    float * imu_quaternion = nullptr;
+    memory.create_buffer<float>("imu_quaternion", 1, imu_quaternion, 16);
+    float *motor_position = nullptr;
+    memory.create_buffer<float>("motor_position", 1, motor_position, 8);
+    float * motor_command = nullptr;
+    memory.create_buffer<float>("motor_command", 1, motor_command, 8);
+
+    // TODO: writing values here for now, need to integrate with ROS
+    imu_quaternion[0] = 0;
+    imu_quaternion[1] = 0;
+    imu_quaternion[2] = 0;
+    imu_quaternion[3] = 1;
+    motor_position[0] = 0;
+    motor_position[1] = 1;
+    motor_command[0] = 0;
+    motor_command[1] = 0;
+
+    // Get controller and get input/output buffers
+    BaseController& model_controller = *memory.getController("Twip1").value();
     auto buffers = model_controller.getBuffers();
 
     // Controller can execute transforms before and after control step
@@ -29,7 +45,7 @@ int main(int argc, char **argv)
         out_ptr[0] = atan2(2 * x * w + 2 * z * y, 1 - 2 * x * x - 2 * y * y);
     };
     RemapRule<> quaternion_rule(quaternion_to_pitch);
-    pre_transforms.emplace_back(quaternion_tmp, buffers.first, quaternion_rule);
+    pre_transforms.emplace_back(imu_quaternion, buffers.first, quaternion_rule);
 
     // Observation 1 is last action
     RangeRemapRule<> last_action_rule(pair<float, float>(-1., 1.), pair<float, float>(-1., 1.), {0}, {1}, false);
@@ -41,7 +57,7 @@ int main(int argc, char **argv)
         out_ptr[0] = tanh((in_ptr[0] + in_ptr[1]) / 2.);
     };
     RemapRule<> tanh_avg_rule(tanh_avg);
-    pre_transforms.emplace_back(position_tmp, buffers.first, tanh_avg_rule);
+    pre_transforms.emplace_back(motor_position, buffers.first, tanh_avg_rule);
 
     // Define post-transforms (transforms needed after control step)
     // Action 0 can be scaled to get our motor output
@@ -55,11 +71,10 @@ int main(int argc, char **argv)
         false);
     post_transforms.emplace_back(buffers.second, motor_command, motor_command_rule);
 
-    //Now that setup is done, we can run the control step
+    // Now that setup is done, we can run the control step
     model_controller.run();
-
-
-    cout<<buffers.second[0]<<endl;
+    auto val = buffers.second[0];
+    cout << val << endl;
 
     return 0;
 }

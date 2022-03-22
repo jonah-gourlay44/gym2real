@@ -1,0 +1,11 @@
+buffers:
+  imu_quaternion: 16
+  motor_command: 4
+  motor_position: 8
+
+controllers:
+  Twip1:
+    type: onnx
+    model_path: cfg/Twip.pth.onnx
+    observations: 3
+    actions: 1
