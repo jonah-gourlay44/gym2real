@@ -1,8 +1,8 @@
-#include "imu/imu.h"
+#include "device/imu.h"
 #include <sstream>
 #include <iostream>
 #include <string.h>
-#include <core/device.hpp>
+#include <device/device.hpp>
 
 IMU::IMU(int address)
     : device_(new ConnectionI2C(address, scl_pin, sda_pin))
