@@ -1,5 +1,16 @@
 #! /bin/bash
 
+CWD = "$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+
+mkdir JetsonGPIO/build && cd JetsonGPIO/build
+cmake .. -DCMAKE_INSTALL_PREFIX=${CWD}/JetsonGPIO/install
+make install
+
+cd libi2c && make libi2c.a
+mkdir -p libi2c/install/include && mkdir libi2c/install/lib
+cp libi2c/libi2c.a libi2c/install/lib
+cp -r libi2c/include/i2c libi2c/install/include/
+
 ./onnxruntime/build.sh \
         --use_cuda \
         --cuda_home /usr/local/cuda \
@@ -15,3 +26,5 @@
         --skip_tests \
         --arm64 \
         --cmake_extra_defines ONNXRUNTIME_VERSION=1.9.1 CMAKE_INSTALL_PREFIX=~/code/ZeroShotRT/onnxruntime/install CUDA_CMAKE_COMPILE=/usr/local/cuda/nvcc
+
+docker build -t zeroshotrt .
