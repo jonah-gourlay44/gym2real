@@ -40,11 +40,11 @@ private:
 };
 
 IMUDriver::IMUDriver(int interrupt_pin, int sda_pin, int scl_pin, int address)
-    : Node("imu_driver"), imu_(new IMU(address)), data_(new DataIMU()), beta_(BETA_IMU), sample_freq_(SAMPLE_RATE)
+    : Node("imu_driver"), imu_(new IMU(address, sda_pin, scl_pin)), data_(new DataIMU()), beta_(BETA_IMU), sample_freq_(SAMPLE_RATE)
 {
     publisher_ = create_publisher<sensor_msgs::msg::Imu>("imu_data", 10);
     cb_ = new Callback(boost::bind(&IMUDriver::data_callback, this, _1), "data_callback");
-    imu_->init(sda_pin, scl_pin);
+    imu_->init();
     imu_->configure(INT_ENABLE, 0x01);
     imu_->configure(SMPLRT_DIV, 0x07);
     imu_->configure(INT_PIN_CFG, 0x00);

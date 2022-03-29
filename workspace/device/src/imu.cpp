@@ -4,7 +4,7 @@
 #include <string.h>
 #include <device/device.hpp>
 
-IMU::IMU(int address)
+IMU::IMU(int address, int scl_pin, int sda_pin)
     : device_(new ConnectionI2C(address, scl_pin, sda_pin))
 {}
 
@@ -16,7 +16,7 @@ bool IMU::writeByte(int address, int value)
     unsigned char buf[1];
     buf[0] = value;
 
-    return device_->write<int8_t>(address, buf, 1);
+    return device_->write<int8_t>(address, (int8_t *)buf, 1);
 }
 
 bool IMU::readByte(int address, int8_t* data)
@@ -80,7 +80,7 @@ bool IMU::setGyroRange(GyroRange range)
 {
     // Reset gyroscope config
     if (!writeByte(GYRO_CONFIG, 0x00)) {
-        printf("Failed to write to gyroscope configuration register.")
+        printf("Failed to write to gyroscope configuration register.");
         return false;
     }
 
@@ -97,7 +97,7 @@ int IMU::getAccelRange(bool raw)
 {
     int8_t raw_val;
     if (!readByte(ACCEL_CONFIG, &raw_val)) {
-        printf("Failed to read accelerometer range from IMU.\n")
+        printf("Failed to read accelerometer range from IMU.\n");
         return -1;
     }
 
@@ -109,7 +109,7 @@ int IMU::getAccelRange(bool raw)
     {
     case ACCEL_RANGE_2G:
         return 2;
-    case ACCEL_RANGE_8G:
+    case ACCEL_RANGE_4G:
         return 4;
     case ACCEL_RANGE_8G:
         return 8;
@@ -157,11 +157,11 @@ double IMU::getGyroScale(const int& range)
     case GYRO_RANGE_1000DEG:
         scale_modifier = GYRO_SCALE_MODIFIER_1000DEG;
         break;
-    case GYRO_RAGE_2000DEG:
+    case GYRO_RANGE_2000DEG:
         scale_modifier = GYRO_SCALE_MODIFIER_2000DEG;
         break;
     default:
-        scale_modifier = GYOR_SCALE_MODIFIER_250DEG;
+        scale_modifier = GYRO_SCALE_MODIFIER_250DEG;
         break;
     }
 
@@ -170,7 +170,7 @@ double IMU::getGyroScale(const int& range)
 
 bool IMU::getGyroData(DataXYZ* data)
 {
-    if (!readXYZ(GYRO_XOUT0, &data_->_xyz[0])) {
+    if (!readXYZ(GYRO_XOUT0, &data->_xyz[0])) {
         printf("Failed to read data from gyroscope.\n");
         return false;
     }
@@ -249,7 +249,7 @@ bool IMU::getData(DataIMU* data)
         return false;
     }
 
-    for (int i = 0l i < 7; i++)
+    for (int i = 0; i < 7; i++)
     {
         data->_data[i] = (int16_t) be16toh((uint16_t) data->_data[i]);
     }

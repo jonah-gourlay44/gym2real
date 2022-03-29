@@ -1,6 +1,7 @@
 #pragma once
 
 #include <i2c/i2c.h>
+#include <map>
 
 class Device
 {
@@ -10,7 +11,7 @@ public:
 
     ~Device() {}
 
-    bool connect() = 0;
+    virtual bool connect() = 0;
 
     void checkConnected()
     {
@@ -51,7 +52,7 @@ public:
 
         if ((bus_ = i2c_open(sda_bus.c_str())) == -1) {
             printf("Failed to open the device [%s].\n", sda_bus.c_str());
-            initilized_ = false;
+            initialized_ = false;
             return false;
         }
 
@@ -84,7 +85,7 @@ public:
         size_t size = sizeof(T) * length;
         size_t write_size;
         
-        if ((write_size = i2c_write(&device_, address, buf, buf_size)) == -1) {
+        if ((write_size = i2c_write(&device_, address, data, size)) == -1) {
             return false;
         }
 
@@ -103,12 +104,12 @@ protected:
     I2CDevice device_;
 };
 
-std::map<int, std::string> ConnectionI2C::sda_map = {
+const std::map<int, std::string> ConnectionI2C::sda_map = {
     {27, "/dev/i2c-0"},
     {3, "/dev/i2c-1"}
 };
 
-std::map<int, std::string> ConnectionI2C::scl_map = {
+const std::map<int, std::string> ConnectionI2C::scl_map = {
     {28, "/dev/i2c-0"},
     {5, "/dev/i2c-1"}
 };

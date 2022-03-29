@@ -58,17 +58,19 @@
 #define GYRO_SCALE_MODIFIER_1000DEG 32.8
 #define GYRO_SCALE_MODIFIER_2000DEG 16.4
 
+#include <stdint.h>
+
 class ConnectionI2C;
 
 struct DataXYZ {
     int16_t _xyz[3];
     double scale;
 
-    Data()
+    DataXYZ()
         : _xyz {0, 0, 0}, scale(1.0)
     {}
 
-    Data(const int16_t& x, const int16_t& y, const int16_t& z)
+    DataXYZ(const int16_t& x, const int16_t& y, const int16_t& z)
         : _xyz {x, y, z}
     {}
 
@@ -86,7 +88,7 @@ struct DataIMU {
 
     double temp() { return ((double) _data[3] / 340.0) + 36.53; }
     
-    Data& accel()
+    DataXYZ& accel()
     {
         _accel._xyz[0] = _data[0];
         _accel._xyz[1] = _data[1];
@@ -95,7 +97,7 @@ struct DataIMU {
         return _accel;
     }
 
-    Data& gyro()
+    DataXYZ& gyro()
     {
         _gyro._xyz[0] = _data[4];
         _gyro._xyz[1] = _data[5];
@@ -105,9 +107,9 @@ struct DataIMU {
     }
 
 private:
-    Data _accel;
-    Data _gyro;
-}
+    DataXYZ _accel;
+    DataXYZ _gyro;
+};
 
 class IMU
 {
@@ -132,7 +134,7 @@ public:
 
     bool init();
 
-    void configure(int address, int value);
+    bool configure(int address, int value);
 
     bool getData(DataIMU* data);
 

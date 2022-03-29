@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(imu_driver)
+project(driver)
 
 # Default to C99
 if(NOT CMAKE_C_STANDARD)
@@ -27,19 +27,19 @@ add_library(driver
   src/imu_driver.cpp
   src/motor_driver.cpp
 )
-target_link_libraries(imu_driver
+target_link_libraries(driver
   JetsonGPIO::JetsonGPIO
   imu
   /usr/lib/libi2c.a
   ${BOOST_LIBRARIES}
 )
 
-target_include_directories(imu_driver PUBLIC
+target_include_directories(driver PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>
 )
 
-install(TARGETS imu_driver
+install(TARGETS driver
   DESTINATION lib/${PROJECT_NAME})
 install(DIRECTORY include
   DESTINATION include/
@@ -51,7 +51,7 @@ include_directories(
   ${BOOST_INCLUDE_DIRS}
 )
 
-ament_target_dependencies(imu_driver rclcpp sensor_msgs device)
+ament_target_dependencies(driver rclcpp sensor_msgs device)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)

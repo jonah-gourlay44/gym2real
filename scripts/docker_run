@@ -1,13 +1,14 @@
 #! /bin/bash
 
-ROOT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}/../" )" &> /dev/null && pwd )"
+ROOT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )"/../ &> /dev/null && pwd )"
 NAME=$1
+IMAGE=$2
 
 nvidia-docker run -it \
     --name=$NAME \
     -v ${ROOT_DIR}/workspace:/root/workspace \
     --net=host \
     --privileged \
-    --gpus all
+    --gpus all \
     --runtime nvidia \
-    zeroshotrt
+    $IMAGE

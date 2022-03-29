@@ -1,6 +1,8 @@
 # Copy built binaries into final image
 FROM timongentzsch/l4t-ubuntu20-ros2-desktop:latest
 
+RUN apt-get update && apt-get install -y build-essential libyamlcpp-dev
+
 # Add onnxruntime install
 ADD onnxruntime/install/lib /usr/local/lib/
 ADD onnxruntime/install/include /usr/local/include/
