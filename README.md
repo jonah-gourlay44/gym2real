@@ -1,4 +1,4 @@
-# ZeroShotRT
+# gym2real
 An advanced educational platform for analyzing reinforcement learning algorithms in realtime.
 
 # Required Materials
