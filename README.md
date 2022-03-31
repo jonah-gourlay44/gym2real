@@ -7,11 +7,11 @@ An advanced educational platform for analyzing reinforcement learning algorithms
 # Installing
 First, clone this repository onto your Jetson development board with 
 
-        git clone --recurse-submodules https://github.com/jonah-gourlay44/ZeroShotRT
+        git clone --recurse-submodules https://github.com/jonah-gourlay44/gym2real
 
-From the ZeroShotRT directory, build the Docker image with
+From the gym2real directory, build the Docker image with
 
-        nvidia-docker build -t zeroshotrt .
+        nvidia-docker build -t gym2real .
 
 Perform the post installation steps with 
 
