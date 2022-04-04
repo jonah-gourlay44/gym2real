@@ -1,4 +1,4 @@
-- install jekyll pre reqs: https://jekyllrb.com/docs/installation/other-linux/
+- install jekyll pre reqs: https://jekyllrb.com/docs/installation/other-linux/ (ruby 2.7)
 - cd into repo
 - run bundle install
 - run bundle exec jekyll serve
