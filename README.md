@@ -1,0 +1,4 @@
+- install jekyll pre reqs: https://jekyllrb.com/docs/installation/other-linux/
+- cd into repo
+- run bundle install
+- run bundle exec jekyll serve
