@@ -20,7 +20,7 @@ PREEMPT_RT is a kernel patch that allows for deterministic thread scheduling to 
         sudo apt install nvidia-l4-rt-kernel nvidia-l4t-rt-kernel-headers
 
 ## Custom I2C Kernel Patch
-The current kernel version has an annoying 10 second timeout for I2C bus clears. This is detrimental to the performance of the robot which relies on consistent measurements from the sensor. We have patched and compiled the kernel with a fix for this specific sensor (MPU6050) that reduces the timeout to 10ms. You can find the file at our repo under [kernel_patch](https://github.com/jonah-gourlay44/gym2real/blob/main/). Steps to install the kernel are:
+The current kernel version has an annoying 10 second timeout for I2C bus clears. This is detrimental to the performance of the robot which relies on consistent measurements from the sensor. We have patched and compiled the kernel with a fix for this specific sensor (MPU6050) that reduces the timeout to 10ms. You can find the file at our repo under [kernel_patch](https://github.com/jonah-gourlay44/gym2real). Steps to install the kernel are:
 
         sudo mkdir /usr/src/kernel/kernel-4.9
         cd /usr/src/kernel/kernel-4.9
