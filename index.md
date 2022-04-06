@@ -24,16 +24,16 @@ We used a two-wheel inverted pendulum (TWIP) robot, NVIDIA Jetson and isaac gym 
 
 We selected the two-wheel inverted pendulum based on its:
 
-Well studied dynamics
-Well defined task set
+- Well studied dynamics
+- Well defined task set
 
 Main Task:
 To make the robot autonomously balance only controlling for the speed of the motors.
 
-We designed the robot to allow:
-Increased torsional stability
-Increased spacing for wiring
-Easier battery access
+- We designed the robot to allow:
+- Increased torsional stability
+- Increased spacing for wiring
+- Easier battery access
 
 # The Simulation - Isaac Gym
 
@@ -43,18 +43,16 @@ Nvidia’s Isaac Gym can perform all the computations on GPU meaning that a sing
 # Solving TWIP Balancing Problem with Reinforcement Learning
 
 1. Build CAD model (hardware description) of the robot where we define its:
-
-Pendulum length
-Radius of wheels
-Mass of pendulum body
-Mass of wheels
+- Pendulum length
+- Radius of wheels
+- Mass of pendulum body
+- Mass of wheels
 
 2. Provide hardware description to simulation environment.
 
 3. Train the model of the robot in the simulation environment (Isaac Gym) where we:
-
-Reward the robot for robot for keeping a 0 degree angle between its length and the vertical axis
-Punish the robot for deviating from that 0 degree angle.
+- Reward the robot for robot for keeping a 0 degree angle between its length and the vertical axis
+- Punish the robot for deviating from that 0 degree angle.
 
 4. After training until the robot can balance in the simulation, we transfer the model to the NVIDIA Jetson for which we built a standard docker image.
 
@@ -63,6 +61,27 @@ Punish the robot for deviating from that 0 degree angle.
 6.  The Jetson receives velocity of the wheels and the angle of the IMU and send signals to the motor based on its training in simulation.
 
 7. The TWIP balances.
+
+# Final Deliverable
+
+The objective of the project was to  to create an open-source, standard set of software and hardware for better understanding the sim2real gap.
+
+The final set of deliverables are now open-source and available online to give hobbyists:
+
+- Faster prototyping capabilities
+- A standard problem
+- An integrated toolset
+
+The full set of deliverables, downloadable and viewable through our website (scan QR code) are:
+
+- Github repository
+- Docker image for Jetson
+- RL model code
+- Hardware description URDF
+- Parts list
+- Instructions and design details paper
+
+
 
 
 ![CAD](resources/images/TWIP_CAD.png)
