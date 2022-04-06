@@ -11,7 +11,11 @@ First, clone this repository onto your Jetson development board with
 
 From the gym2real directory, build the Docker image with
 
-        nvidia-docker build -t gym2real .
+        nvidia-docker build -t {image_name} .
+        
+or pull with
+
+        docker pull jonahg1/zeroshotrt
 
 Perform the post installation steps with 
 
@@ -28,3 +32,8 @@ The container can be restarted after exiting with
 
         docker start -i {container_name}
 
+To build the code from inside the container type
+
+        colcon build
+        
+From the 'workspace' directory.
