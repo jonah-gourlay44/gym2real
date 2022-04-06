@@ -6,6 +6,21 @@ nav_order: 1
 
 ## Overview
 
+# Sim2Real
+
+Gathering real-world data to train a robot can be costly and sample inefficient.
+
+Sim2Real is a proposed solution to this problem and is the study of using simulated environments to train the behaviour of an agent before deploying it in the real-world.
+
+The gap between simulated and real worlds determines the performance of the agent once transferred into real robots. 
+
+There are no consistent set of tools hobbyists use to cross the sim2real gap.
+
+# Solution
+
+We used a two-wheel inverted pendulum (TWIP) robot, NVIDIA Jetson and isaac gym simulation tool  to create an open-source, standard set of software and hardware for better understanding the sim2real gap.
+
+
 ![CAD](resources/images/TWIP_CAD.png)
 
 <!-- ## Welcome to GitHub Pages
