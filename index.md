@@ -20,7 +20,7 @@ There are no consistent set of tools hobbyists use to cross the sim2real gap.
 
 We used a two-wheel inverted pendulum (TWIP) robot, NVIDIA Jetson and isaac gym simulation tool  to create an open-source, standard set of software and hardware for better understanding the sim2real gap - setting out to build a robot and simulation environment that could solve the two-wheel inverted pendulum balancing problem with RL.
 
-# The Robot - Two Wheel Inverted Pendulum
+## The Robot - Two Wheel Inverted Pendulum
 
 We selected the two-wheel inverted pendulum based on its:
 
@@ -35,12 +35,12 @@ To make the robot autonomously balance only controlling for the speed of the mot
 - Increased spacing for wiring
 - Easier battery access
 
-# The Simulation - Isaac Gym
+## The Simulation - Isaac Gym
 
 One of the main barriers most simulators face is they rely on complex sequential calculations, which makes it difficult to scale.
 Nvidia’s Isaac Gym can perform all the computations on GPU meaning that a single hobbyist-grade GPU can train hundreds of robots in parallel decreasing the cost and computation time.
 
-# Solving TWIP Balancing Problem with Reinforcement Learning
+## Solving TWIP Balancing Problem with Reinforcement Learning
 
 1. Build CAD model (hardware description) of the robot where we define its:
 - Pendulum length
