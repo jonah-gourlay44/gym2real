@@ -79,124 +79,142 @@
   },"13": {
     "doc": "Home",
     "title": "Overview",
-    "content": "Project overview . ",
+    "content": ". ",
     "url": "http://localhost:4000/#overview",
     "relUrl": "/#overview"
   },"14": {
-    "doc": "Home",
-    "title": "Welcome to GitHub Pages",
-    "content": "You can use the editor on GitHub to maintain and preview the content for your website in Markdown files. Whenever you commit to this repository, GitHub Pages will run Jekyll to rebuild the pages in your site, from the content in your Markdown files. Markdown . Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for . Syntax highlighted code block # Header 1 ## Header 2 ### Header 3 - Bulleted - List 1. Numbered 2. List **Bold** and _Italic_ and `Code` text [Link](url) and ![Image](src) . For more details see Basic writing and formatting syntax. Jekyll Themes . Your Pages site will use the layout and styles from the Jekyll theme you have selected in your repository settings. The name of this theme is saved in the Jekyll _config.yml configuration file. Support or Contact . Having trouble with Pages? Check out our documentation or contact support and we’ll help you sort it out. ",
-    "url": "http://localhost:4000/#welcome-to-github-pages",
-    "relUrl": "/#welcome-to-github-pages"
-  },"15": {
     "doc": "Home",
     "title": "Home",
     "content": " ",
     "url": "http://localhost:4000/",
     "relUrl": "/"
-  },"16": {
+  },"15": {
     "doc": "Software Installation",
     "title": "Software Installation",
     "content": " ",
     "url": "http://localhost:4000/pages/setup/install.html",
     "relUrl": "/pages/setup/install.html"
-  },"17": {
+  },"16": {
     "doc": "Hardware Setup",
     "title": "Hardware Setup",
     "content": "Your Jetson Nano will first need to be flashed with the Nvidia developer kit image. Once setup, ensure you can connect to the Jetson via ssh. Some changes to the base ubuntu kernel are required to run the system as desired for this project. A real-time kernel patch called PREEMPT_RT has to be installed, and a custom kernel patch to reduce I2C error delay time has to be added. ",
     "url": "http://localhost:4000/pages/setup/jetson.html",
     "relUrl": "/pages/setup/jetson.html"
-  },"18": {
+  },"17": {
     "doc": "Hardware Setup",
     "title": "PREEMPT_RT Kernel Patch",
     "content": "PREEMPT_RT is a kernel patch that allows for deterministic thread scheduling to be configured. This is crucial for real-time processes to ensure that high-priority processes are scheduled before lower priority ones. To install the kernel patch: . sudo echo 'deb https://repo.download.nvidia.com/jetson/rt-kernel r32.6.1 main' &gt;&gt; /etc/apt/sources.list.d/nvidia-l4t-apt-source.list sudo apt update sudo apt install nvidia-l4-rt-kernel nvidia-l4t-rt-kernel-headers . ",
     "url": "http://localhost:4000/pages/setup/jetson.html#preempt_rt-kernel-patch",
     "relUrl": "/pages/setup/jetson.html#preempt_rt-kernel-patch"
-  },"19": {
+  },"18": {
     "doc": "Hardware Setup",
     "title": "Custom I2C Kernel Patch",
     "content": "The current kernel version has an annoying 10 second timeout for I2C bus clears. This is detrimental to the performance of the robot which relies on consistent measurements from the sensor. We have patched and compiled the kernel with a fix for this specific sensor (MPU6050) that reduces the timeout to 10ms. You can find the file at our repo under kernel_patch. Steps to install the kernel are: . sudo mkdir /usr/src/kernel/kernel-4.9 cd /usr/src/kernel/kernel-4.9 wget https://github.com/jonah-gourlay44/gym2real/blob/main/kernel_patch.tbz2 tar -xvjf kernel_patch.tbz2 sudo cp -R /usr/src/kernel/kernel-4.9/build/modules/lib/modules/4.9.253-rt168 /lib/modules sudo cp /usr/src/kernel/kernel-4.9/build/kernel/arch/arm64/boot/Image /boot/Image.i2c_patch . Once the image is copied into the boot folder, modify /boot/extlinux/extlinux.conf in order to boot into the new image. Now your Jetson Nano is setup, you are ready to follow the steps in the Software Insallation page. ",
     "url": "http://localhost:4000/pages/setup/jetson.html#custom-i2c-kernel-patch",
     "relUrl": "/pages/setup/jetson.html#custom-i2c-kernel-patch"
-  },"20": {
+  },"19": {
     "doc": "Memory",
     "title": "Memory",
     "content": " ",
     "url": "http://localhost:4000/pages/docs/memory",
     "relUrl": "/pages/docs/memory"
-  },"21": {
+  },"20": {
     "doc": "MemoryManager",
     "title": "MemoryManager",
     "content": " ",
     "url": "http://localhost:4000/pages/docs/memory/memorymanager.html",
     "relUrl": "/pages/docs/memory/memorymanager.html"
-  },"22": {
+  },"21": {
     "doc": "MotorDriver",
     "title": "MotorDriver",
     "content": " ",
     "url": "http://localhost:4000/pages/docs/drivers/motordriver.html",
     "relUrl": "/pages/docs/drivers/motordriver.html"
-  },"23": {
+  },"22": {
     "doc": "OnnxController",
     "title": "OnnxController",
     "content": " ",
     "url": "http://localhost:4000/pages/docs/controllers/onnxcontroller.html",
     "relUrl": "/pages/docs/controllers/onnxcontroller.html"
-  },"24": {
+  },"23": {
     "doc": "PidController",
     "title": "PidController",
     "content": " ",
     "url": "http://localhost:4000/pages/docs/controllers/pidcontroller.html",
     "relUrl": "/pages/docs/controllers/pidcontroller.html"
-  },"25": {
+  },"24": {
     "doc": "Reinforcement Learning",
     "title": "Reinforcement Learning",
     "content": " ",
     "url": "http://localhost:4000/pages/background/rl.html",
     "relUrl": "/pages/background/rl.html"
+  },"25": {
+    "doc": "Robot Construction",
+    "title": "Robot Setup",
+    "content": "This document outlines the steps to construct the two-wheeled inverted pendulum robot. Before starting the construction you will several things. First, consult the BOM for the parts required for the robot. Second, open up the CAD and obtain DXF files of the robot frame (base plate, main wall, side walls, etc). At this point you can also obtain the STL file for the battery holder which you can 3D print. ",
+    "url": "http://localhost:4000/pages/setup/robot.html#robot-setup",
+    "relUrl": "/pages/setup/robot.html#robot-setup"
   },"26": {
+    "doc": "Robot Construction",
+    "title": "Robot Setup",
+    "content": "To construct the frame you will need access to a laser cutter. Import the DXF files obtained from the CAD into your favourite laser cutting software and cut the pieces using 5mm hardboard. The support legs do not have to be cut from hardboard, we found that they tended to break often, rather they can be waterjet cut or cut with a stronger material. Example of the laser cutter software. Cutting the hardboard. Once the material has been cut, epoxy together the frame. The order that the board should be put together is as follows . | The left, right and center wall | The top and bottom plates | The handle (optional) | . The frame should look similar to the image above. ",
+    "url": "http://localhost:4000/pages/setup/robot.html#robot-setup-1",
+    "relUrl": "/pages/setup/robot.html#robot-setup-1"
+  },"27": {
+    "doc": "Robot Construction",
+    "title": "Assembly",
+    "content": "Once the frame has been assembled, you are ready to put all the electronics together. To get started, gather some tools. Terminal Block . The first item to mount will be the terminal block. Cut the jumpers into groups of three and insert them into the block. Using some M3 bolts, mount the block to the side opposite where the jetson will eventually sit. Motor Driver . Mount the motor drivers on the same side as the terminal blocks. Ensure you have a pair of wires which you will connect to the terminal block later. Central Electronics Board . On the opposite side of the middle wall, you will mount the main PCB that wire mounts are connected to. The regulator should be placed on the same side as the terminal block. Battery Holders . 3D print the battery holders with supports using your favourite 3D printer. Insert the fuse holder, battery connecter and switch into their slots and solder some connections as shown. Motor &amp; Mount . Mount the motor onto the L-bracket mount using some M3 bolts. Insert the wheel onto the motor shaft and secure it using a M3 set screw. Jetson &amp; Rest . Finally, mount the Jetson on the same side as the central PCB. Place the Jetson near the side to ensure access. At this point you can optionally add the support legs (first remove the terminal block to get access) using M5 bolts. Wiring . The terminal block is used as a central location where the motor drivers, regulator, batteries can connect to. The connections in the block should have the following groups . | Regulator Power in, Battery (A) Power | Regulator Ground, Battery (A) Ground, MPU6050 unused pins | Left Motor Driver Power, Right Motor Driver Power, Battery (B) Power | Left Motor Driver Ground, Right Motor Driver Ground, Battery (B) Ground] | . The rest of the wires should be held down by zip ties to ensure they are secure. ",
+    "url": "http://localhost:4000/pages/setup/robot.html#assembly",
+    "relUrl": "/pages/setup/robot.html#assembly"
+  },"28": {
     "doc": "Robot Construction",
     "title": "Robot Construction",
     "content": " ",
     "url": "http://localhost:4000/pages/setup/robot.html",
     "relUrl": "/pages/setup/robot.html"
-  },"27": {
+  },"29": {
     "doc": "Running the Robot",
     "title": "Running the Robot",
     "content": " ",
     "url": "http://localhost:4000/pages/usage/running.html",
     "relUrl": "/pages/usage/running.html"
-  },"28": {
+  },"30": {
     "doc": "Setup",
     "title": "Setup",
     "content": "In this section we will guide you through the process of building and configuring your own RL-enabled TWIP. Please make sure you have all of the materials below before attempting the setup steps. ",
     "url": "http://localhost:4000/pages/setup",
     "relUrl": "/pages/setup"
-  },"29": {
+  },"31": {
     "doc": "Setup",
     "title": "Bill of Materials",
-    "content": "| Item | Quantity | . | Nvidia Jetson Nano Developer Kit | 1 | . | Micro USB to USB Cable | 1 | . | Micro SD Card (30 GB minimum) | 1 | . ",
+    "content": "| Item | Quantity | Source | . | Nvidia Jetson Nano Developer Kit | 1 | src | . | Micro USB to USB Cable | 1 | src | . | Micro SD Card (30 GB minimum) | 1 | src | . | MPU-6050 Gyro and Acelerometer | 1 | src | . | Lynxmotion 12V 1:26.9 Brushed Motor w/ Encoder | 2 | src | . | MD10C R3 - Motor Driver | 2 | src | . | Ribbon Cable H3CCS-4006G | 1 | src | . | Fuse Holder BK1-HTJ-606I | 3 | src | . | Turnigy 1300mAh 3S 30C Lipo Pack | 2 | src | . | Nylon XT60 Connectors | 2 | src | . | HE1WPR/12 Terminal Block | 1 | src | . | 94669A104 Standoffs | 24 | src | . | Devantech 125mm Wheel | 2 | src | . | HCL8-12 Jumpers | 1 | src | . | RA11131121 Switch | 2 | src | . ",
     "url": "http://localhost:4000/pages/setup#bill-of-materials",
     "relUrl": "/pages/setup#bill-of-materials"
-  },"30": {
+  },"32": {
     "doc": "Simulation",
     "title": "Simulation",
     "content": " ",
     "url": "http://localhost:4000/pages/setup/simulation.html",
     "relUrl": "/pages/setup/simulation.html"
-  },"31": {
+  },"33": {
     "doc": "Model Training",
     "title": "Model Training",
     "content": " ",
     "url": "http://localhost:4000/pages/usage/training.html",
     "relUrl": "/pages/usage/training.html"
-  },"32": {
+  },"34": {
+    "doc": "Two-Wheel Inverted Pendulum",
+    "title": "Two-wheeled Inverted Pendulum Dynamics",
+    "content": "The TWIP is by construction an inverted pendulum that is no longer fixed at a single point. While fairly easy to design an implement, analysis of this system leads to a set of coupled non-linear equations. Notably, the principles behind the TWIP are present in a large number of other systems (Rockets, Bipedal, Segways). As a result, designing an efficient controller for this system has been an active area of research. However, the TWIP belongs to a set of underactuated robots, which implies that it is inherently unstable (without an active controller) and coupled with the non-intuitive nature of the dynamics, it is a challenge to design a robust controller. The analysis of the TWIP can begin with a simple free body diagram. The system can be analyzed in 2D to simplify the problem slightly. Analyze each component (body &amp; wheel) separately. Equations for each Wheel . \\[\\begin{align} \\ddot{x}m_{w} &amp;= f_{f} - f_{x}\\\\ \\ddot{y}m_{w} &amp;= f_N - f_y - m_{w}g = 0\\\\ I_{w}\\ddot{\\psi} &amp;= -f_{f}r + T_{m} \\end{align}\\] Equations for pole \\(\\begin{align} \\ddot{x}_{p}m_{p} &amp;= 2f_{x}\\\\ \\ddot{y}_{p}m_{p} &amp;= 2f_y - m_{p}g = 0\\\\ I_{p}\\ddot{\\gamma} &amp;= 2 f_{y}\\ell \\sin(\\gamma) -2 f_{x}\\ell \\cos(\\gamma) + 2T_{m} \\end{align}\\) . The relationship between wheel rotation ($\\psi$) and wheel linear displacement ($x$) is \\(\\begin{align} x &amp;=\\psi r\\\\ \\dot{x} &amp;=\\dot{\\psi}r\\\\ \\ddot{x} &amp;=\\ddot{\\psi}r \\end{align}\\) . The center of gravity is displaced as governed by \\(\\begin{align} x_{p} &amp;= x - \\ell\\sin(\\gamma)\\\\ y_{p} &amp;= \\ell\\cos(\\gamma) \\end{align}\\) . Taking time derivatives, \\(\\begin{align} \\dot{x}_{p} &amp;= \\dot{x} - \\dot{\\gamma}\\ell\\cos(\\gamma)\\\\ \\ddot{x}_{p} &amp;=\\ddot{x} -\\ell\\ddot{\\gamma}\\cos(\\gamma)+\\ell\\dot{\\gamma}^2\\sin(\\gamma)\\\\ \\dot{y}_{p} &amp;= -\\dot{\\gamma}\\ell\\sin(\\gamma)\\\\ \\ddot{y}_{p} &amp;= -\\ell\\ddot{\\gamma}\\sin(\\gamma)-\\ell\\dot{\\gamma}^2\\cos(\\gamma \\end{align}\\) . Simplifying a little … \\(\\begin{align} I_{p}\\ddot{\\gamma} &amp;= m_p g\\ell \\sin(\\gamma) - \\ddot{x}_{p}m_{p}\\ell \\cos(\\gamma) +2T_{m}\\\\ &amp;= m_p g\\ell \\sin(\\gamma) - (\\ddot{x}-\\ell\\ddot{\\gamma}\\cos(\\gamma)+\\ell\\dot{\\gamma}^2\\sin(\\gamma))m_{p}\\ell \\cos(\\gamma) +2T_{m}\\\\ I_{p}\\ddot{\\gamma} &amp;=2 T_m + m_p g\\ell \\sin(\\gamma) - \\ddot{x} m_{p}\\ell \\cos(\\gamma)\\\\ &amp;+m_{p}\\ell^2\\ddot{\\gamma}\\cos^2(\\gamma) -m_{p}\\ell^2\\dot{\\gamma}^2\\sin(\\gamma)\\cos(\\gamma) \\end{align}\\) . Simplifying further … \\(\\begin{align} I_{w}\\ddot{\\psi} &amp;= -(\\ddot{x}m_{w} + f_{x}) r + T_{m}\\\\ I_{w}\\ddot{\\psi} &amp;= -(\\ddot{x}m_{w} + \\dfrac{\\ddot{x}_{p}m_{p}}{2}) r + T_{m}\\\\ I_{w}\\dfrac{\\ddot{x}}{r} &amp;= -\\ddot{x}m_{w}r -\\ddot{x}_{p}\\dfrac{m_{p}r}{2} + T_{m}\\\\ I_{w}\\dfrac{\\ddot{x}}{r} &amp;= -\\ddot{x}m_{w}r -(\\ddot{x}-\\ell\\ddot{\\gamma}\\cos(\\gamma)+\\ell\\dot{\\gamma}^2\\sin(\\gamma))\\dfrac{m_{p}r}{2} + T_{m}\\\\ I_w\\ddot{x}_{w} &amp;=T_m r - \\ddot{x}m_{w}r^2 - \\ddot{x} \\dfrac{m_{p}r^2}{2} - \\ell\\dot{\\gamma}^2\\sin(\\gamma)\\dfrac{m_{p}r^2}{2} +\\ell\\ddot{\\gamma}\\cos(\\gamma) \\dfrac{m_{p}r^2}{2}\\\\ I_w\\ddot{x}_{w} &amp;=T_m r - (m_{w} + \\dfrac{m_{p}}{2})\\ddot{x}r^2 - \\left[\\dot{\\gamma}^2\\sin(\\gamma) - \\ddot{\\gamma}\\cos(\\gamma)\\right]\\dfrac{m_{p}\\ell r^2}{2} \\end{align}\\) . To understand how the torque $T_m$ is generated, consider the circuit below . As the motor rotates, a potential ($V_b$) is induced which is equal to $V_b = K_e \\dot{\\psi}$, where $K_e$ is the emf constant. The motor torque is equal to $T = K_t i$, where $K_t$ is the motor torque constant. Solving for the steady state torque, . \\[\\begin{align} i &amp;= \\dfrac{V - V_b}{R} = \\dfrac{V - K_e \\dot{\\psi}}{R}\\\\ T &amp;= K_t\\dfrac{V - K_e \\dot{\\psi}}{R} \\end{align}\\] To obtain the torque $T_m$, damping be considered. The final torque generated is \\(T_m =\\dfrac{K_t}{R}(V - K_e \\dot{\\psi}) - b \\dot{\\psi}\\) Note, it is assumed the moment of inertia of the motor shaft is negligible when compared to the wheel. Finally, the analysis above results in the following two equations . \\[\\begin{align} \\ddot{x}_{w} &amp;= \\dfrac{\\left[\\dfrac{K_t}{R}(V - K_e \\dot{\\psi}) - b \\dot{\\psi} \\right] r - \\left[\\dot{\\gamma}^2\\sin(\\gamma) - \\ddot{\\gamma}\\cos(\\gamma)\\right]\\dfrac{m_{p}\\ell r^2}{2}}{\\left[I_w + (m_{w} + \\dfrac{m_{p}}{2}) r^2\\right]}\\\\ \\ddot{\\gamma} &amp;= \\dfrac{2 \\left[ \\dfrac{K_t}{R}(V - K_e \\dot{\\psi}) - b \\dot{\\psi} \\right] + m_p g\\ell \\sin(\\gamma) - \\ddot{x} m_{p}\\ell \\cos(\\gamma)+m_{p}\\ell^2\\ddot{\\gamma}\\cos^2(\\gamma) -m_{p}\\ell^2\\dot{\\gamma}^2\\sin(\\gamma)\\cos(\\gamma)}{I_p} \\end{align}\\] ",
+    "url": "http://localhost:4000/pages/background/twip.html#two-wheeled-inverted-pendulum-dynamics",
+    "relUrl": "/pages/background/twip.html#two-wheeled-inverted-pendulum-dynamics"
+  },"35": {
     "doc": "Two-Wheel Inverted Pendulum",
     "title": "Two-Wheel Inverted Pendulum",
     "content": " ",
     "url": "http://localhost:4000/pages/background/twip.html",
     "relUrl": "/pages/background/twip.html"
-  },"33": {
+  },"36": {
     "doc": "Usage",
     "title": "Usage",
     "content": " ",
