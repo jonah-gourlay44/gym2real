@@ -31,4 +31,5 @@ The current kernel version has an annoying 10 second timeout for I2C bus clears.
         sudo cp /usr/src/kernel/kernel-4.9/build/kernel/arch/arm64/boot/Image /boot/Image.i2c_patch
 
 Once the image is copied into the boot folder, modify /boot/extlinux/extlinux.conf in order to boot into the new image.
+
 Now your Jetson Nano is setup, you are ready to follow the steps in the [Software Insallation](install) page.

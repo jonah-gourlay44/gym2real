@@ -1,21 +1,21 @@
 {"0": {
     "doc": "About",
     "title": "About",
-    "content": " ",
+    "content": "We are a group of Engineering Physics students from The University of British Columbia in Vancouver. We have strong interests in the fields of reinforcement learning, mechatronics, and software development. This project was created as a capstone project with the support of the Engineering Physics Project Lab at UBC. ",
     "url": "http://localhost:4000/pages/about",
     "relUrl": "/pages/about"
   },"1": {
+    "doc": "About",
+    "title": "Contact",
+    "content": ". | Jonah Gourlay: jonah.gourlay33@gmail.com | Kevin Huang: kevin@khuang.ca | Bereket Guta: | Kobe Ng: | Daniel Backhouse: | . ",
+    "url": "http://localhost:4000/pages/about#contact",
+    "relUrl": "/pages/about#contact"
+  },"2": {
     "doc": "Background",
     "title": "Background",
     "content": " ",
     "url": "http://localhost:4000/pages/background",
     "relUrl": "/pages/background"
-  },"2": {
-    "doc": "Building the Software",
-    "title": "Building the Software",
-    "content": " ",
-    "url": "http://localhost:4000/pages/usage/building.html",
-    "relUrl": "/pages/usage/building.html"
   },"3": {
     "doc": "ConnectionI2C",
     "title": "ConnectionI2C",
@@ -31,7 +31,7 @@
   },"5": {
     "doc": "Controllers",
     "title": "Controllers",
-    "content": " ",
+    "content": "Controllers are the top-level structure used to run control loops. They can communicate with drivers via ROS2, and are executed via the commandline. ",
     "url": "http://localhost:4000/pages/docs/controllers",
     "relUrl": "/pages/docs/controllers"
   },"6": {
@@ -49,19 +49,19 @@
   },"8": {
     "doc": "Devices",
     "title": "Devices",
-    "content": " ",
+    "content": "Devices are low-level hardware interfaces that simplify the process of creating drivers. We implemented a basic I2C API to communicate with an IMU. ",
     "url": "http://localhost:4000/pages/docs/devices",
     "relUrl": "/pages/docs/devices"
   },"9": {
     "doc": "Documentation",
     "title": "Documentation",
-    "content": " ",
+    "content": "The following pages contain our API documentation that detail how you can add your own functionality to our repository! . ",
     "url": "http://localhost:4000/pages/docs",
     "relUrl": "/pages/docs"
   },"10": {
     "doc": "Drivers",
     "title": "Drivers",
-    "content": " ",
+    "content": "Drivers are built on top of devices to interpret hardware-level data and publish it to the controller interface. They may also receive commands from the controller interface to read or write to hardware devices. ",
     "url": "http://localhost:4000/pages/docs/drivers",
     "relUrl": "/pages/docs/drivers"
   },"11": {
@@ -79,145 +79,241 @@
   },"13": {
     "doc": "Home",
     "title": "Overview",
-    "content": ". ",
+    "content": " ",
     "url": "http://localhost:4000/#overview",
     "relUrl": "/#overview"
   },"14": {
+    "doc": "Home",
+    "title": "Sim2Real",
+    "content": "Gathering real-world data to train a robot can be costly and sample inefficient. Sim2Real is a proposed solution to this problem and is the study of using simulated environments to train the behaviour of an agent before deploying it in the real-world. The gap between simulated and real worlds determines the performance of the agent once transferred into real robots. There are no consistent set of tools hobbyists use to cross the sim2real gap. ",
+    "url": "http://localhost:4000/#sim2real",
+    "relUrl": "/#sim2real"
+  },"15": {
+    "doc": "Home",
+    "title": "Solution",
+    "content": "We used a two-wheel inverted pendulum (TWIP) robot, NVIDIA Jetson and isaac gym simulation tool to create an open-source, standard set of software and hardware for better understanding the sim2real gap - setting out to build a robot and simulation environment that could solve the two-wheel inverted pendulum balancing problem with RL. ",
+    "url": "http://localhost:4000/#solution",
+    "relUrl": "/#solution"
+  },"16": {
+    "doc": "Home",
+    "title": "The Robot - Two Wheel Inverted Pendulum",
+    "content": "We selected the two-wheel inverted pendulum based on its: . | Well studied dynamics | Well defined task set | . Main Task: To make the robot autonomously balance only controlling for the speed of the motors. | We designed the robot to allow: | Increased torsional stability | Increased spacing for wiring | Easier battery access | . ",
+    "url": "http://localhost:4000/#the-robot---two-wheel-inverted-pendulum",
+    "relUrl": "/#the-robot---two-wheel-inverted-pendulum"
+  },"17": {
+    "doc": "Home",
+    "title": "The Simulation - Isaac Gym",
+    "content": "One of the main barriers most simulators face is they rely on complex sequential calculations, which makes it difficult to scale. Nvidia’s Isaac Gym can perform all the computations on GPU meaning that a single hobbyist-grade GPU can train hundreds of robots in parallel decreasing the cost and computation time. ",
+    "url": "http://localhost:4000/#the-simulation---isaac-gym",
+    "relUrl": "/#the-simulation---isaac-gym"
+  },"18": {
+    "doc": "Home",
+    "title": "Solving TWIP Balancing Problem with Reinforcement Learning",
+    "content": ". | Build CAD model (hardware description) of the robot where we define its: . | Pendulum length | Radius of wheels | Mass of pendulum body | Mass of wheels | . | Provide hardware description to simulation environment. | Train the model of the robot in the simulation environment (Isaac Gym) where we: . | Reward the robot for robot for keeping a 0 degree angle between its length and the vertical axis | Punish the robot for deviating from that 0 degree angle. | . | After training until the robot can balance in the simulation, we transfer the model to the NVIDIA Jetson for which we built a standard docker image. | The NVIDIA Jetson is mounted to the robot and hooked up to the motors and IMU (device for measuring angular velocity). | The Jetson receives velocity of the wheels and the angle of the IMU and send signals to the motor based on its training in simulation. | The TWIP balances. | . ",
+    "url": "http://localhost:4000/#solving-twip-balancing-problem-with-reinforcement-learning",
+    "relUrl": "/#solving-twip-balancing-problem-with-reinforcement-learning"
+  },"19": {
+    "doc": "Home",
+    "title": "Final Deliverable",
+    "content": "The objective of the project was to to create an open-source, standard set of software and hardware for better understanding the sim2real gap. The final set of deliverables are now open-source and available online to give hobbyists: . | Faster prototyping capabilities | A standard problem | An integrated toolset | . The full set of deliverables, downloadable and viewable through our website (scan QR code) are: . | Github repository | Docker image for Jetson | RL model code | Hardware description URDF | Parts list | Instructions and design details paper | . ",
+    "url": "http://localhost:4000/#final-deliverable",
+    "relUrl": "/#final-deliverable"
+  },"20": {
     "doc": "Home",
     "title": "Home",
     "content": " ",
     "url": "http://localhost:4000/",
     "relUrl": "/"
-  },"15": {
+  },"21": {
     "doc": "Software Installation",
     "title": "Software Installation",
     "content": " ",
     "url": "http://localhost:4000/pages/setup/install.html",
     "relUrl": "/pages/setup/install.html"
-  },"16": {
+  },"22": {
+    "doc": "Software Installation",
+    "title": "Quickstart",
+    "content": "First, clone this repository onto your Jetson development board with . git clone https://github.com/jonah-gourlay44/gym2real . Pull the docker environment with . docker pull jonahg1/zeroshotrt . ",
+    "url": "http://localhost:4000/pages/setup/install.html#quickstart",
+    "relUrl": "/pages/setup/install.html#quickstart"
+  },"23": {
+    "doc": "Software Installation",
+    "title": "Source Build",
+    "content": "If you would rather build your environment from source, start in the gym2real repo and type . git submodule init git submodule update ./build nvidia-docker build -t {image_name} . This will take a significant amount of time. Best to grab yourself a coffee and maybe go for a jog at this point. ",
+    "url": "http://localhost:4000/pages/setup/install.html#source-build",
+    "relUrl": "/pages/setup/install.html#source-build"
+  },"24": {
+    "doc": "Software Installation",
+    "title": "Post Installation &amp; Usage",
+    "content": "Finally, complete the post installation steps with . sudo scripts/post_inst . A container for the Docker image can be run with ./scripts/docker_run {container_name} {image_name} . The value for image_name will be jonahg1/zeroshotrt if you chose to pull from DockerHub, and whatever you named your image otherwise. The container can be started again after exiting with . docker start -i {container_name} . To build the code in the Docker container type . colcon build . From the ‘workspace’ directory . ",
+    "url": "http://localhost:4000/pages/setup/install.html#post-installation--usage",
+    "relUrl": "/pages/setup/install.html#post-installation--usage"
+  },"25": {
     "doc": "Hardware Setup",
     "title": "Hardware Setup",
     "content": "Your Jetson Nano will first need to be flashed with the Nvidia developer kit image. Once setup, ensure you can connect to the Jetson via ssh. Some changes to the base ubuntu kernel are required to run the system as desired for this project. A real-time kernel patch called PREEMPT_RT has to be installed, and a custom kernel patch to reduce I2C error delay time has to be added. ",
     "url": "http://localhost:4000/pages/setup/jetson.html",
     "relUrl": "/pages/setup/jetson.html"
-  },"17": {
+  },"26": {
     "doc": "Hardware Setup",
     "title": "PREEMPT_RT Kernel Patch",
     "content": "PREEMPT_RT is a kernel patch that allows for deterministic thread scheduling to be configured. This is crucial for real-time processes to ensure that high-priority processes are scheduled before lower priority ones. To install the kernel patch: . sudo echo 'deb https://repo.download.nvidia.com/jetson/rt-kernel r32.6.1 main' &gt;&gt; /etc/apt/sources.list.d/nvidia-l4t-apt-source.list sudo apt update sudo apt install nvidia-l4-rt-kernel nvidia-l4t-rt-kernel-headers . ",
     "url": "http://localhost:4000/pages/setup/jetson.html#preempt_rt-kernel-patch",
     "relUrl": "/pages/setup/jetson.html#preempt_rt-kernel-patch"
-  },"18": {
+  },"27": {
     "doc": "Hardware Setup",
     "title": "Custom I2C Kernel Patch",
     "content": "The current kernel version has an annoying 10 second timeout for I2C bus clears. This is detrimental to the performance of the robot which relies on consistent measurements from the sensor. We have patched and compiled the kernel with a fix for this specific sensor (MPU6050) that reduces the timeout to 10ms. You can find the file at our repo under kernel_patch. Steps to install the kernel are: . sudo mkdir /usr/src/kernel/kernel-4.9 cd /usr/src/kernel/kernel-4.9 wget https://github.com/jonah-gourlay44/gym2real/blob/main/kernel_patch.tbz2 tar -xvjf kernel_patch.tbz2 sudo cp -R /usr/src/kernel/kernel-4.9/build/modules/lib/modules/4.9.253-rt168 /lib/modules sudo cp /usr/src/kernel/kernel-4.9/build/kernel/arch/arm64/boot/Image /boot/Image.i2c_patch . Once the image is copied into the boot folder, modify /boot/extlinux/extlinux.conf in order to boot into the new image. Now your Jetson Nano is setup, you are ready to follow the steps in the Software Insallation page. ",
     "url": "http://localhost:4000/pages/setup/jetson.html#custom-i2c-kernel-patch",
     "relUrl": "/pages/setup/jetson.html#custom-i2c-kernel-patch"
-  },"19": {
+  },"28": {
     "doc": "Memory",
     "title": "Memory",
-    "content": " ",
+    "content": "We have implemented a basic shared memory interface that allows paged memory to be allocated before program runtime. This makes for faster read/write operations, and prevents time-inefficient page faults from hanging up the main control loop. ",
     "url": "http://localhost:4000/pages/docs/memory",
     "relUrl": "/pages/docs/memory"
-  },"20": {
+  },"29": {
     "doc": "MemoryManager",
     "title": "MemoryManager",
     "content": " ",
     "url": "http://localhost:4000/pages/docs/memory/memorymanager.html",
     "relUrl": "/pages/docs/memory/memorymanager.html"
-  },"21": {
+  },"30": {
     "doc": "MotorDriver",
     "title": "MotorDriver",
     "content": " ",
     "url": "http://localhost:4000/pages/docs/drivers/motordriver.html",
     "relUrl": "/pages/docs/drivers/motordriver.html"
-  },"22": {
+  },"31": {
     "doc": "OnnxController",
     "title": "OnnxController",
     "content": " ",
     "url": "http://localhost:4000/pages/docs/controllers/onnxcontroller.html",
     "relUrl": "/pages/docs/controllers/onnxcontroller.html"
-  },"23": {
+  },"32": {
     "doc": "PidController",
     "title": "PidController",
     "content": " ",
     "url": "http://localhost:4000/pages/docs/controllers/pidcontroller.html",
     "relUrl": "/pages/docs/controllers/pidcontroller.html"
-  },"24": {
+  },"33": {
     "doc": "Reinforcement Learning",
     "title": "Reinforcement Learning",
     "content": " ",
     "url": "http://localhost:4000/pages/background/rl.html",
     "relUrl": "/pages/background/rl.html"
-  },"25": {
+  },"34": {
     "doc": "Robot Construction",
     "title": "Robot Setup",
     "content": "This document outlines the steps to construct the two-wheeled inverted pendulum robot. Before starting the construction you will several things. First, consult the BOM for the parts required for the robot. Second, open up the CAD and obtain DXF files of the robot frame (base plate, main wall, side walls, etc). At this point you can also obtain the STL file for the battery holder which you can 3D print. ",
     "url": "http://localhost:4000/pages/setup/robot.html#robot-setup",
     "relUrl": "/pages/setup/robot.html#robot-setup"
-  },"26": {
+  },"35": {
     "doc": "Robot Construction",
     "title": "Robot Setup",
     "content": "To construct the frame you will need access to a laser cutter. Import the DXF files obtained from the CAD into your favourite laser cutting software and cut the pieces using 5mm hardboard. The support legs do not have to be cut from hardboard, we found that they tended to break often, rather they can be waterjet cut or cut with a stronger material. Example of the laser cutter software. Cutting the hardboard. Once the material has been cut, epoxy together the frame. The order that the board should be put together is as follows . | The left, right and center wall | The top and bottom plates | The handle (optional) | . The frame should look similar to the image above. ",
     "url": "http://localhost:4000/pages/setup/robot.html#robot-setup-1",
     "relUrl": "/pages/setup/robot.html#robot-setup-1"
-  },"27": {
+  },"36": {
     "doc": "Robot Construction",
     "title": "Assembly",
     "content": "Once the frame has been assembled, you are ready to put all the electronics together. To get started, gather some tools. Terminal Block . The first item to mount will be the terminal block. Cut the jumpers into groups of three and insert them into the block. Using some M3 bolts, mount the block to the side opposite where the jetson will eventually sit. Motor Driver . Mount the motor drivers on the same side as the terminal blocks. Ensure you have a pair of wires which you will connect to the terminal block later. Central Electronics Board . On the opposite side of the middle wall, you will mount the main PCB that wire mounts are connected to. The regulator should be placed on the same side as the terminal block. Battery Holders . 3D print the battery holders with supports using your favourite 3D printer. Insert the fuse holder, battery connecter and switch into their slots and solder some connections as shown. Motor &amp; Mount . Mount the motor onto the L-bracket mount using some M3 bolts. Insert the wheel onto the motor shaft and secure it using a M3 set screw. Jetson &amp; Rest . Finally, mount the Jetson on the same side as the central PCB. Place the Jetson near the side to ensure access. At this point you can optionally add the support legs (first remove the terminal block to get access) using M5 bolts. Wiring . The terminal block is used as a central location where the motor drivers, regulator, batteries can connect to. The connections in the block should have the following groups . | Regulator Power in, Battery (A) Power | Regulator Ground, Battery (A) Ground, MPU6050 unused pins | Left Motor Driver Power, Right Motor Driver Power, Battery (B) Power | Left Motor Driver Ground, Right Motor Driver Ground, Battery (B) Ground] | . The rest of the wires should be held down by zip ties to ensure they are secure. ",
     "url": "http://localhost:4000/pages/setup/robot.html#assembly",
     "relUrl": "/pages/setup/robot.html#assembly"
-  },"28": {
+  },"37": {
     "doc": "Robot Construction",
     "title": "Robot Construction",
     "content": " ",
     "url": "http://localhost:4000/pages/setup/robot.html",
     "relUrl": "/pages/setup/robot.html"
-  },"29": {
+  },"38": {
     "doc": "Running the Robot",
     "title": "Running the Robot",
     "content": " ",
     "url": "http://localhost:4000/pages/usage/running.html",
     "relUrl": "/pages/usage/running.html"
-  },"30": {
+  },"39": {
     "doc": "Setup",
     "title": "Setup",
     "content": "In this section we will guide you through the process of building and configuring your own RL-enabled TWIP. Please make sure you have all of the materials below before attempting the setup steps. ",
     "url": "http://localhost:4000/pages/setup",
     "relUrl": "/pages/setup"
-  },"31": {
+  },"40": {
     "doc": "Setup",
     "title": "Bill of Materials",
     "content": "| Item | Quantity | Source | . | Nvidia Jetson Nano Developer Kit | 1 | src | . | Micro USB to USB Cable | 1 | src | . | Micro SD Card (30 GB minimum) | 1 | src | . | MPU-6050 Gyro and Acelerometer | 1 | src | . | Lynxmotion 12V 1:26.9 Brushed Motor w/ Encoder | 2 | src | . | MD10C R3 - Motor Driver | 2 | src | . | Ribbon Cable H3CCS-4006G | 1 | src | . | Fuse Holder BK1-HTJ-606I | 3 | src | . | Turnigy 1300mAh 3S 30C Lipo Pack | 2 | src | . | Nylon XT60 Connectors | 2 | src | . | HE1WPR/12 Terminal Block | 1 | src | . | 94669A104 Standoffs | 24 | src | . | Devantech 125mm Wheel | 2 | src | . | HCL8-12 Jumpers | 1 | src | . | RA11131121 Switch | 2 | src | . ",
     "url": "http://localhost:4000/pages/setup#bill-of-materials",
     "relUrl": "/pages/setup#bill-of-materials"
-  },"32": {
+  },"41": {
+    "doc": "Simulation",
+    "title": "Gym2Real_isaacgym",
+    "content": "https://github.com/kevinh42/gym2real_isaacgym . This repo provides a custom task to be used with Isaac Gym as well as scripts for training and exporting models. ",
+    "url": "http://localhost:4000/pages/setup/simulation.html#gym2real_isaacgym",
+    "relUrl": "/pages/setup/simulation.html#gym2real_isaacgym"
+  },"42": {
+    "doc": "Simulation",
+    "title": "Requirements",
+    "content": ". | Nvidia GPU with 470+ drivers (nvidia-smi to make sure these are set up) | Isaac Gym (tested with version 1.0.preview3) | IsaacGymEnvs (tested with commit 9656bac7e59b96382d2c5040b90d2ea5c227d56d) | . Isaac Gym Setup . | Download Isaac Gym from Nvidia’s developer portal: https://developer.nvidia.com/isaac-gym | cd isaacgym/python &amp;&amp; pip install -e . to install Python package | More detailed installation guide in: isaacgym/docs/install.html | . IsaacGymEnvs Setup . | git clone https://github.com/NVIDIA-Omniverse/IsaacGymEnvs (tested with commit 9656bac7e59b96382d2c5040b90d2ea5c227d56d) | cd IsaacGymEnvs &amp;&amp; pip install -e . to install Python package | . ",
+    "url": "http://localhost:4000/pages/setup/simulation.html#requirements",
+    "relUrl": "/pages/setup/simulation.html#requirements"
+  },"43": {
+    "doc": "Simulation",
+    "title": "Repo Structure",
+    "content": ". | train.py: Main script used for training/testing models | export.py: Script for exporting models as ONNX files | cfg/task/: YAML configs for each task defining environment parameters and domain randomization | cfg/train/: YAML configs for each task defining RL model and hyperparameters | tasks/: Class definitions and assets for each task | runs/: Model checkpoints and summaries will be saved here | . ",
+    "url": "http://localhost:4000/pages/setup/simulation.html#repo-structure",
+    "relUrl": "/pages/setup/simulation.html#repo-structure"
+  },"44": {
+    "doc": "Simulation",
+    "title": "IsaacGymEnvs",
+    "content": "This repo was designed to be used after installing IsaacGymEnvs (https://github.com/NVIDIA-Omniverse/IsaacGymEnvs) as a Python library. IsaacGymEnvs comes close to being usable as a library, but requires adding your custom task to a map. The following files are taken from IsaacGymEnvs and modified so that this isn’t necessary: . | cfg/config.yaml (minimal changes) | utils/rlgames_utils.py (minimal changes) | base/vec_task.py (minimal changes) | train.py | . Instead of looking for tasks in a static map, this code uses pydoc.locate to dynamically load the task class. ",
+    "url": "http://localhost:4000/pages/setup/simulation.html#isaacgymenvs",
+    "relUrl": "/pages/setup/simulation.html#isaacgymenvs"
+  },"45": {
     "doc": "Simulation",
     "title": "Simulation",
     "content": " ",
     "url": "http://localhost:4000/pages/setup/simulation.html",
     "relUrl": "/pages/setup/simulation.html"
-  },"33": {
+  },"46": {
+    "doc": "Model Training",
+    "title": "Gym2Real_isaacgym",
+    "content": "https://github.com/kevinh42/gym2real_isaacgym . This repo provides a custom task to be used with Isaac Gym as well as scripts for training and exporting models. ",
+    "url": "http://localhost:4000/pages/usage/training.html#gym2real_isaacgym",
+    "relUrl": "/pages/usage/training.html#gym2real_isaacgym"
+  },"47": {
+    "doc": "Model Training",
+    "title": "Repo Structure",
+    "content": ". | train.py: Main script used for training/testing models | export.py: Script for exporting models as ONNX files | cfg/task/: YAML configs for each task defining environment parameters and domain randomization | cfg/train/: YAML configs for each task defining RL model and hyperparameters | tasks/: Class definitions and assets for each task | runs/: Model checkpoints and summaries will be saved here | . ",
+    "url": "http://localhost:4000/pages/usage/training.html#repo-structure",
+    "relUrl": "/pages/usage/training.html#repo-structure"
+  },"48": {
+    "doc": "Model Training",
+    "title": "Usage",
+    "content": "Adding a New Task . Create a new folder called tasks/{task_name}. The following files will be needed: . | tasks/{task_name}/{task_name}.py: Class defining the task. Rewards, observations, actions are all defined here. | tasks/{task_name}/assets/: URDF and meshes should be placed here. | cfg/task/{TaskName}.yaml: Config file defining environment parameters and domain randomization | cfg/train/{TaskName}PPO.yaml: Config gile defining hyperparameters for training | . Training . | python train.py task={task_name} to begin training | Models are saved as runs/{TaskName}/nn/{checkpoint_name}.pth | . Exporting ONNX . | python export.py task={task_name} checkpoint=\"runs/{TaskName}/nn/{checkpoint_name}.pth\" to export | Model is exported to runs/{TaskName}/nn/{checkpoint_name}.pth.onnx | . ",
+    "url": "http://localhost:4000/pages/usage/training.html#usage",
+    "relUrl": "/pages/usage/training.html#usage"
+  },"49": {
     "doc": "Model Training",
     "title": "Model Training",
     "content": " ",
     "url": "http://localhost:4000/pages/usage/training.html",
     "relUrl": "/pages/usage/training.html"
-  },"34": {
+  },"50": {
     "doc": "Two-Wheel Inverted Pendulum",
     "title": "Two-wheeled Inverted Pendulum Dynamics",
     "content": "The TWIP is by construction an inverted pendulum that is no longer fixed at a single point. While fairly easy to design an implement, analysis of this system leads to a set of coupled non-linear equations. Notably, the principles behind the TWIP are present in a large number of other systems (Rockets, Bipedal, Segways). As a result, designing an efficient controller for this system has been an active area of research. However, the TWIP belongs to a set of underactuated robots, which implies that it is inherently unstable (without an active controller) and coupled with the non-intuitive nature of the dynamics, it is a challenge to design a robust controller. The analysis of the TWIP can begin with a simple free body diagram. The system can be analyzed in 2D to simplify the problem slightly. Analyze each component (body &amp; wheel) separately. Equations for each Wheel . \\[\\begin{align} \\ddot{x}m_{w} &amp;= f_{f} - f_{x}\\\\ \\ddot{y}m_{w} &amp;= f_N - f_y - m_{w}g = 0\\\\ I_{w}\\ddot{\\psi} &amp;= -f_{f}r + T_{m} \\end{align}\\] Equations for pole \\(\\begin{align} \\ddot{x}_{p}m_{p} &amp;= 2f_{x}\\\\ \\ddot{y}_{p}m_{p} &amp;= 2f_y - m_{p}g = 0\\\\ I_{p}\\ddot{\\gamma} &amp;= 2 f_{y}\\ell \\sin(\\gamma) -2 f_{x}\\ell \\cos(\\gamma) + 2T_{m} \\end{align}\\) . The relationship between wheel rotation ($\\psi$) and wheel linear displacement ($x$) is \\(\\begin{align} x &amp;=\\psi r\\\\ \\dot{x} &amp;=\\dot{\\psi}r\\\\ \\ddot{x} &amp;=\\ddot{\\psi}r \\end{align}\\) . The center of gravity is displaced as governed by \\(\\begin{align} x_{p} &amp;= x - \\ell\\sin(\\gamma)\\\\ y_{p} &amp;= \\ell\\cos(\\gamma) \\end{align}\\) . Taking time derivatives, \\(\\begin{align} \\dot{x}_{p} &amp;= \\dot{x} - \\dot{\\gamma}\\ell\\cos(\\gamma)\\\\ \\ddot{x}_{p} &amp;=\\ddot{x} -\\ell\\ddot{\\gamma}\\cos(\\gamma)+\\ell\\dot{\\gamma}^2\\sin(\\gamma)\\\\ \\dot{y}_{p} &amp;= -\\dot{\\gamma}\\ell\\sin(\\gamma)\\\\ \\ddot{y}_{p} &amp;= -\\ell\\ddot{\\gamma}\\sin(\\gamma)-\\ell\\dot{\\gamma}^2\\cos(\\gamma \\end{align}\\) . Simplifying a little … \\(\\begin{align} I_{p}\\ddot{\\gamma} &amp;= m_p g\\ell \\sin(\\gamma) - \\ddot{x}_{p}m_{p}\\ell \\cos(\\gamma) +2T_{m}\\\\ &amp;= m_p g\\ell \\sin(\\gamma) - (\\ddot{x}-\\ell\\ddot{\\gamma}\\cos(\\gamma)+\\ell\\dot{\\gamma}^2\\sin(\\gamma))m_{p}\\ell \\cos(\\gamma) +2T_{m}\\\\ I_{p}\\ddot{\\gamma} &amp;=2 T_m + m_p g\\ell \\sin(\\gamma) - \\ddot{x} m_{p}\\ell \\cos(\\gamma)\\\\ &amp;+m_{p}\\ell^2\\ddot{\\gamma}\\cos^2(\\gamma) -m_{p}\\ell^2\\dot{\\gamma}^2\\sin(\\gamma)\\cos(\\gamma) \\end{align}\\) . Simplifying further … \\(\\begin{align} I_{w}\\ddot{\\psi} &amp;= -(\\ddot{x}m_{w} + f_{x}) r + T_{m}\\\\ I_{w}\\ddot{\\psi} &amp;= -(\\ddot{x}m_{w} + \\dfrac{\\ddot{x}_{p}m_{p}}{2}) r + T_{m}\\\\ I_{w}\\dfrac{\\ddot{x}}{r} &amp;= -\\ddot{x}m_{w}r -\\ddot{x}_{p}\\dfrac{m_{p}r}{2} + T_{m}\\\\ I_{w}\\dfrac{\\ddot{x}}{r} &amp;= -\\ddot{x}m_{w}r -(\\ddot{x}-\\ell\\ddot{\\gamma}\\cos(\\gamma)+\\ell\\dot{\\gamma}^2\\sin(\\gamma))\\dfrac{m_{p}r}{2} + T_{m}\\\\ I_w\\ddot{x}_{w} &amp;=T_m r - \\ddot{x}m_{w}r^2 - \\ddot{x} \\dfrac{m_{p}r^2}{2} - \\ell\\dot{\\gamma}^2\\sin(\\gamma)\\dfrac{m_{p}r^2}{2} +\\ell\\ddot{\\gamma}\\cos(\\gamma) \\dfrac{m_{p}r^2}{2}\\\\ I_w\\ddot{x}_{w} &amp;=T_m r - (m_{w} + \\dfrac{m_{p}}{2})\\ddot{x}r^2 - \\left[\\dot{\\gamma}^2\\sin(\\gamma) - \\ddot{\\gamma}\\cos(\\gamma)\\right]\\dfrac{m_{p}\\ell r^2}{2} \\end{align}\\) . To understand how the torque $T_m$ is generated, consider the circuit below . As the motor rotates, a potential ($V_b$) is induced which is equal to $V_b = K_e \\dot{\\psi}$, where $K_e$ is the emf constant. The motor torque is equal to $T = K_t i$, where $K_t$ is the motor torque constant. Solving for the steady state torque, . \\[\\begin{align} i &amp;= \\dfrac{V - V_b}{R} = \\dfrac{V - K_e \\dot{\\psi}}{R}\\\\ T &amp;= K_t\\dfrac{V - K_e \\dot{\\psi}}{R} \\end{align}\\] To obtain the torque $T_m$, damping be considered. The final torque generated is \\(T_m =\\dfrac{K_t}{R}(V - K_e \\dot{\\psi}) - b \\dot{\\psi}\\) Note, it is assumed the moment of inertia of the motor shaft is negligible when compared to the wheel. Finally, the analysis above results in the following two equations . \\[\\begin{align} \\ddot{x}_{w} &amp;= \\dfrac{\\left[\\dfrac{K_t}{R}(V - K_e \\dot{\\psi}) - b \\dot{\\psi} \\right] r - \\left[\\dot{\\gamma}^2\\sin(\\gamma) - \\ddot{\\gamma}\\cos(\\gamma)\\right]\\dfrac{m_{p}\\ell r^2}{2}}{\\left[I_w + (m_{w} + \\dfrac{m_{p}}{2}) r^2\\right]}\\\\ \\ddot{\\gamma} &amp;= \\dfrac{2 \\left[ \\dfrac{K_t}{R}(V - K_e \\dot{\\psi}) - b \\dot{\\psi} \\right] + m_p g\\ell \\sin(\\gamma) - \\ddot{x} m_{p}\\ell \\cos(\\gamma)+m_{p}\\ell^2\\ddot{\\gamma}\\cos^2(\\gamma) -m_{p}\\ell^2\\dot{\\gamma}^2\\sin(\\gamma)\\cos(\\gamma)}{I_p} \\end{align}\\] ",
     "url": "http://localhost:4000/pages/background/twip.html#two-wheeled-inverted-pendulum-dynamics",
     "relUrl": "/pages/background/twip.html#two-wheeled-inverted-pendulum-dynamics"
-  },"35": {
+  },"51": {
     "doc": "Two-Wheel Inverted Pendulum",
     "title": "Two-Wheel Inverted Pendulum",
     "content": " ",
     "url": "http://localhost:4000/pages/background/twip.html",
     "relUrl": "/pages/background/twip.html"
-  },"36": {
+  },"52": {
     "doc": "Usage",
     "title": "Usage",
-    "content": " ",
+    "content": "There are two main aspects of our code base that operate independently. These are the simulation and robot software. The pages in this section detail how to train a model in simulation using our IsaacGym fork, and how to run the trained model on the TWIP robot. ",
     "url": "http://localhost:4000/pages/usage",
     "relUrl": "/pages/usage"
   }
