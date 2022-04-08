@@ -13,6 +13,6 @@ We are a group of Engineering Physics students from The University of British Co
 
 - Jonah Gourlay: jonah.gourlay33@gmail.com
 - Kevin Huang: kevin@khuang.ca
-- Bereket Guta: 
+- Bereket Guta: https://bguta.github.io/
 - Kobe Ng:
 - Daniel Backhouse: 

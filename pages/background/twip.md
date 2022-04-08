@@ -78,8 +78,8 @@ $$
      I_{w}\ddot{\psi} &= -(\ddot{x}m_{w} + \dfrac{\ddot{x}_{p}m_{p}}{2}) r + T_{m}\\
      I_{w}\dfrac{\ddot{x}}{r} &= -\ddot{x}m_{w}r -\ddot{x}_{p}\dfrac{m_{p}r}{2} + T_{m}\\
      I_{w}\dfrac{\ddot{x}}{r} &= -\ddot{x}m_{w}r -(\ddot{x}-\ell\ddot{\gamma}\cos(\gamma)+\ell\dot{\gamma}^2\sin(\gamma))\dfrac{m_{p}r}{2} + T_{m}\\
-     I_w\ddot{x}_{w} &=T_m r - \ddot{x}m_{w}r^2 - \ddot{x} \dfrac{m_{p}r^2}{2} - \ell\dot{\gamma}^2\sin(\gamma)\dfrac{m_{p}r^2}{2} +\ell\ddot{\gamma}\cos(\gamma) \dfrac{m_{p}r^2}{2}\\
-     I_w\ddot{x}_{w} &=T_m r - (m_{w} + \dfrac{m_{p}}{2})\ddot{x}r^2 - \left[\dot{\gamma}^2\sin(\gamma) - \ddot{\gamma}\cos(\gamma)\right]\dfrac{m_{p}\ell r^2}{2}
+     I_w\ddot{x} &=T_m r - \ddot{x}m_{w}r^2 - \ddot{x} \dfrac{m_{p}r^2}{2} - \ell\dot{\gamma}^2\sin(\gamma)\dfrac{m_{p}r^2}{2} +\ell\ddot{\gamma}\cos(\gamma) \dfrac{m_{p}r^2}{2}\\
+     I_w\ddot{x} &=T_m r - (m_{w} + \dfrac{m_{p}}{2})\ddot{x}r^2 - \left[\dot{\gamma}^2\sin(\gamma) - \ddot{\gamma}\cos(\gamma)\right]\dfrac{m_{p}\ell r^2}{2}
 \end{align}
 $$
 
@@ -106,7 +106,7 @@ Finally, the analysis above results in the following two equations
 
 $$
 \begin{align}
- \ddot{x}_{w} &= \dfrac{\left[\dfrac{K_t}{R}(V - K_e \dot{\psi}) - b \dot{\psi} \right] r - \left[\dot{\gamma}^2\sin(\gamma) - \ddot{\gamma}\cos(\gamma)\right]\dfrac{m_{p}\ell r^2}{2}}{\left[I_w + (m_{w} + \dfrac{m_{p}}{2}) r^2\right]}\\
+ \ddot{x} &= \dfrac{\left[\dfrac{K_t}{R}(V - K_e \dot{\psi}) - b \dot{\psi} \right] r - \left[\dot{\gamma}^2\sin(\gamma) - \ddot{\gamma}\cos(\gamma)\right]\dfrac{m_{p}\ell r^2}{2}}{\left[I_w + (m_{w} + \dfrac{m_{p}}{2}) r^2\right]}\\
  \ddot{\gamma} &= \dfrac{2 \left[ \dfrac{K_t}{R}(V - K_e \dot{\psi}) - b \dot{\psi} \right] + m_p g\ell \sin(\gamma) - \ddot{x} m_{p}\ell \cos(\gamma)+m_{p}\ell^2\ddot{\gamma}\cos^2(\gamma) -m_{p}\ell^2\dot{\gamma}^2\sin(\gamma)\cos(\gamma)}{I_p}
 \end{align}
 $$
