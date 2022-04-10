@@ -174,143 +174,185 @@
     "relUrl": "/pages/docs/memory"
   },"29": {
     "doc": "MemoryManager",
-    "title": "MemoryManager",
+    "title": "YAML Configuration",
     "content": " ",
+    "url": "http://localhost:4000/pages/docs/memory/memorymanager.html#yaml-configuration",
+    "relUrl": "/pages/docs/memory/memorymanager.html#yaml-configuration"
+  },"30": {
+    "doc": "MemoryManager",
+    "title": "Buffers",
+    "content": "Buffers can be added as key-value pairs under buffers. The key will be the name of the shared memory object using the POSIX API. The value will be the number of bytes the buffer should use (eg. for a float32 buffer of length 4, the value should be 4*4=16). ",
+    "url": "http://localhost:4000/pages/docs/memory/memorymanager.html#buffers",
+    "relUrl": "/pages/docs/memory/memorymanager.html#buffers"
+  },"31": {
+    "doc": "MemoryManager",
+    "title": "Controllers",
+    "content": "Controllers can be added under controllers. Currently only the onnx type is implemented. An onnx controller can load a .onnx file whose path is under the key model_path. ",
+    "url": "http://localhost:4000/pages/docs/memory/memorymanager.html#controllers",
+    "relUrl": "/pages/docs/memory/memorymanager.html#controllers"
+  },"32": {
+    "doc": "MemoryManager",
+    "title": "API",
+    "content": " ",
+    "url": "http://localhost:4000/pages/docs/memory/memorymanager.html#api",
+    "relUrl": "/pages/docs/memory/memorymanager.html#api"
+  },"33": {
+    "doc": "MemoryManager",
+    "title": "create_buffer",
+    "content": "Creates a buffer that can access the corresponding shared memory object. ",
+    "url": "http://localhost:4000/pages/docs/memory/memorymanager.html#create_buffer",
+    "relUrl": "/pages/docs/memory/memorymanager.html#create_buffer"
+  },"34": {
+    "doc": "MemoryManager",
+    "title": "get_controller",
+    "content": "Returns the controller with the given key. ",
+    "url": "http://localhost:4000/pages/docs/memory/memorymanager.html#get_controller",
+    "relUrl": "/pages/docs/memory/memorymanager.html#get_controller"
+  },"35": {
+    "doc": "MemoryManager",
+    "title": "MemoryManager",
+    "content": "The MemoryManager class can preallocate buffers and controllers from a configuration file. ",
     "url": "http://localhost:4000/pages/docs/memory/memorymanager.html",
     "relUrl": "/pages/docs/memory/memorymanager.html"
-  },"30": {
+  },"36": {
     "doc": "MotorDriver",
     "title": "MotorDriver",
     "content": " ",
     "url": "http://localhost:4000/pages/docs/drivers/motordriver.html",
     "relUrl": "/pages/docs/drivers/motordriver.html"
-  },"31": {
+  },"37": {
     "doc": "OnnxController",
     "title": "OnnxController",
     "content": " ",
     "url": "http://localhost:4000/pages/docs/controllers/onnxcontroller.html",
     "relUrl": "/pages/docs/controllers/onnxcontroller.html"
-  },"32": {
+  },"38": {
     "doc": "PidController",
     "title": "PidController",
     "content": " ",
     "url": "http://localhost:4000/pages/docs/controllers/pidcontroller.html",
     "relUrl": "/pages/docs/controllers/pidcontroller.html"
-  },"33": {
+  },"39": {
     "doc": "Reinforcement Learning",
     "title": "Reinforcement Learning",
     "content": " ",
     "url": "http://localhost:4000/pages/background/rl.html",
     "relUrl": "/pages/background/rl.html"
-  },"34": {
+  },"40": {
     "doc": "Robot Construction",
     "title": "Robot Setup",
     "content": "This document outlines the steps to construct the two-wheeled inverted pendulum robot. Before starting the construction you will several things. First, consult the BOM for the parts required for the robot. Second, open up the CAD and obtain DXF files of the robot frame (base plate, main wall, side walls, etc). At this point you can also obtain the STL file for the battery holder which you can 3D print. ",
     "url": "http://localhost:4000/pages/setup/robot.html#robot-setup",
     "relUrl": "/pages/setup/robot.html#robot-setup"
-  },"35": {
+  },"41": {
     "doc": "Robot Construction",
     "title": "Robot Setup",
     "content": "To construct the frame you will need access to a laser cutter. Import the DXF files obtained from the CAD into your favourite laser cutting software and cut the pieces using 5mm hardboard. The support legs do not have to be cut from hardboard, we found that they tended to break often, rather they can be waterjet cut or cut with a stronger material. Example of the laser cutter software. Cutting the hardboard. Once the material has been cut, epoxy together the frame. The order that the board should be put together is as follows . | The left, right and center wall | The top and bottom plates | The handle (optional) | . The frame should look similar to the image above. ",
     "url": "http://localhost:4000/pages/setup/robot.html#robot-setup-1",
     "relUrl": "/pages/setup/robot.html#robot-setup-1"
-  },"36": {
+  },"42": {
     "doc": "Robot Construction",
     "title": "Assembly",
     "content": "Once the frame has been assembled, you are ready to put all the electronics together. To get started, gather some tools. Terminal Block . The first item to mount will be the terminal block. Cut the jumpers into groups of three and insert them into the block. Using some M3 bolts, mount the block to the side opposite where the jetson will eventually sit. Motor Driver . Mount the motor drivers on the same side as the terminal blocks. Ensure you have a pair of wires which you will connect to the terminal block later. Use M2.5x20 bolts for mounting. Central Electronics Board . On the opposite side of the middle wall, you will mount the main PCB that wire mounts are connected to. The regulator should be placed on the same side as the terminal block. Mount on three corners using M2.5x20 bolts. Battery Holders . 3D print the battery holders with supports using your favourite 3D printer. Insert the fuse holder, battery connecter and switch into their slots and solder some connections as shown. Mount the battery holders using 2-56x1/2 or similar bolts. Motor &amp; Mount . Mount the motor onto the L-bracket mount using some M3 bolts. Insert the wheel onto the motor shaft and secure it using a M3 set screw. Jetson &amp; Rest . Finally, mount the Jetson on the same side as the central PCB. Place the Jetson near the side to ensure access. At this point you can optionally add the support legs (first remove the terminal block to get access) using M5 bolts. The Jeston should be mounted using M2.5x20 bolts. The IMU should be mounted at the bottom with M2.5x8 bolts and an JST style connector can be made for it. Wiring . The terminal block is used as a central location where the motor drivers, regulator, batteries can connect to. The connections in the block should have the following groups . | Regulator Power in, Battery (A) Power | Regulator Ground, Battery (A) Ground, MPU6050 unused pins | Left Motor Driver Power, Right Motor Driver Power, Battery (B) Power | Left Motor Driver Ground, Right Motor Driver Ground, Battery (B) Ground] | . The rest of the wires should be held down by zip ties to ensure they are secure. ",
     "url": "http://localhost:4000/pages/setup/robot.html#assembly",
     "relUrl": "/pages/setup/robot.html#assembly"
-  },"37": {
+  },"43": {
     "doc": "Robot Construction",
     "title": "Robot Construction",
     "content": " ",
     "url": "http://localhost:4000/pages/setup/robot.html",
     "relUrl": "/pages/setup/robot.html"
-  },"38": {
+  },"44": {
     "doc": "Running the Robot",
     "title": "Running the Robot",
     "content": " ",
     "url": "http://localhost:4000/pages/usage/running.html",
     "relUrl": "/pages/usage/running.html"
-  },"39": {
+  },"45": {
     "doc": "Setup",
     "title": "Setup",
     "content": "In this section we will guide you through the process of building and configuring your own RL-enabled TWIP. Please make sure you have all of the materials below before attempting the setup steps. ",
     "url": "http://localhost:4000/pages/setup",
     "relUrl": "/pages/setup"
-  },"40": {
+  },"46": {
     "doc": "Setup",
     "title": "Bill of Materials",
     "content": "| Item | Quantity | Source | . | Nvidia Jetson Nano Developer Kit | 1 |   | . | Micro USB to USB Cable | 1 |   | . | Micro SD Card (30 GB minimum) | 1 |   | . | MPU-6050 Gyro and Acelerometer | 1 | src | . | Lynxmotion 12V 1:26.9 Brushed Motor w/ Encoder | 2 | src | . | MD10C R3 - Motor Driver | 2 | src | . | Ribbon Cable H3CCS-4006G | 1 | src | . | Fuse Holder BK1-HTJ-606I | 3 | src | . | Turnigy 1300mAh 3S 30C Lipo Pack | 2 | src | . | Nylon XT60 Connectors | 2 | src | . | HE1WPR/12 Terminal Block | 1 | src | . | 94669A104 Standoffs | 24 | src | . | Devantech 125mm Wheel | 2 | src | . | HCL8-12 Jumpers | 1 | src | . | RA11131121 Switch | 2 | src | . | NEMA17 motor bracket | 2 | src | . | 2-56x1/2 bolt + lock washer + nut | 8 |   | . | 2-56x5/8 bolt + lock washer + nut | 2 |   | . | M6x20 + washer + nut | 4 |   | . | M3x8 + lock washer + nut | 8 |   | . | M2.5x8 + lock washer + nut | 2 |   | . ",
     "url": "http://localhost:4000/pages/setup#bill-of-materials",
     "relUrl": "/pages/setup#bill-of-materials"
-  },"41": {
+  },"47": {
     "doc": "Simulation",
     "title": "Gym2Real_isaacgym",
     "content": "https://github.com/kevinh42/gym2real_isaacgym . This repo provides a custom task to be used with Isaac Gym as well as scripts for training and exporting models. ",
     "url": "http://localhost:4000/pages/setup/simulation.html#gym2real_isaacgym",
     "relUrl": "/pages/setup/simulation.html#gym2real_isaacgym"
-  },"42": {
+  },"48": {
     "doc": "Simulation",
     "title": "Requirements",
     "content": ". | Nvidia GPU with 470+ drivers (nvidia-smi to make sure these are set up) | Isaac Gym (tested with version 1.0.preview3) | IsaacGymEnvs (tested with commit 9656bac7e59b96382d2c5040b90d2ea5c227d56d) | . Isaac Gym Setup . | Download Isaac Gym from Nvidia’s developer portal: https://developer.nvidia.com/isaac-gym | cd isaacgym/python &amp;&amp; pip install -e . to install Python package | More detailed installation guide in: isaacgym/docs/install.html | . IsaacGymEnvs Setup . | git clone https://github.com/NVIDIA-Omniverse/IsaacGymEnvs (tested with commit 9656bac7e59b96382d2c5040b90d2ea5c227d56d) | cd IsaacGymEnvs &amp;&amp; pip install -e . to install Python package | . ",
     "url": "http://localhost:4000/pages/setup/simulation.html#requirements",
     "relUrl": "/pages/setup/simulation.html#requirements"
-  },"43": {
+  },"49": {
     "doc": "Simulation",
     "title": "Repo Structure",
     "content": ". | train.py: Main script used for training/testing models | export.py: Script for exporting models as ONNX files | cfg/task/: YAML configs for each task defining environment parameters and domain randomization | cfg/train/: YAML configs for each task defining RL model and hyperparameters | tasks/: Class definitions and assets for each task | runs/: Model checkpoints and summaries will be saved here | . ",
     "url": "http://localhost:4000/pages/setup/simulation.html#repo-structure",
     "relUrl": "/pages/setup/simulation.html#repo-structure"
-  },"44": {
+  },"50": {
     "doc": "Simulation",
     "title": "IsaacGymEnvs",
     "content": "This repo was designed to be used after installing IsaacGymEnvs (https://github.com/NVIDIA-Omniverse/IsaacGymEnvs) as a Python library. IsaacGymEnvs comes close to being usable as a library, but requires adding your custom task to a map. The following files are taken from IsaacGymEnvs and modified so that this isn’t necessary: . | cfg/config.yaml (minimal changes) | utils/rlgames_utils.py (minimal changes) | base/vec_task.py (minimal changes) | train.py | . Instead of looking for tasks in a static map, this code uses pydoc.locate to dynamically load the task class. ",
     "url": "http://localhost:4000/pages/setup/simulation.html#isaacgymenvs",
     "relUrl": "/pages/setup/simulation.html#isaacgymenvs"
-  },"45": {
+  },"51": {
     "doc": "Simulation",
     "title": "Simulation",
     "content": " ",
     "url": "http://localhost:4000/pages/setup/simulation.html",
     "relUrl": "/pages/setup/simulation.html"
-  },"46": {
+  },"52": {
     "doc": "Model Training",
     "title": "Gym2Real_isaacgym",
     "content": "https://github.com/kevinh42/gym2real_isaacgym . This repo provides a custom task to be used with Isaac Gym as well as scripts for training and exporting models. ",
     "url": "http://localhost:4000/pages/usage/training.html#gym2real_isaacgym",
     "relUrl": "/pages/usage/training.html#gym2real_isaacgym"
-  },"47": {
+  },"53": {
     "doc": "Model Training",
     "title": "Repo Structure",
     "content": ". | train.py: Main script used for training/testing models | export.py: Script for exporting models as ONNX files | cfg/task/: YAML configs for each task defining environment parameters and domain randomization | cfg/train/: YAML configs for each task defining RL model and hyperparameters | tasks/: Class definitions and assets for each task | runs/: Model checkpoints and summaries will be saved here | . ",
     "url": "http://localhost:4000/pages/usage/training.html#repo-structure",
     "relUrl": "/pages/usage/training.html#repo-structure"
-  },"48": {
+  },"54": {
     "doc": "Model Training",
     "title": "Usage",
     "content": "Adding a New Task . Create a new folder called tasks/{task_name}. The following files will be needed: . | tasks/{task_name}/{task_name}.py: Class defining the task. Rewards, observations, actions are all defined here. | tasks/{task_name}/assets/: URDF and meshes should be placed here. | cfg/task/{TaskName}.yaml: Config file defining environment parameters and domain randomization | cfg/train/{TaskName}PPO.yaml: Config gile defining hyperparameters for training | . Training . | python train.py task={task_name} to begin training | Models are saved as runs/{TaskName}/nn/{checkpoint_name}.pth | . Exporting ONNX . | python export.py task={task_name} checkpoint=\"runs/{TaskName}/nn/{checkpoint_name}.pth\" to export | Model is exported to runs/{TaskName}/nn/{checkpoint_name}.pth.onnx | . ",
     "url": "http://localhost:4000/pages/usage/training.html#usage",
     "relUrl": "/pages/usage/training.html#usage"
-  },"49": {
+  },"55": {
+    "doc": "Model Training",
+    "title": "train.py",
+    "content": "__init__ . Loads configured parameters and sets up tensors. _create_envs . Loads assets and creates agents. DOFs (joints) and rigid bodies (links) are configured here. compute_reward . Calculates reward from observations. compute_observations . Data from environments are placed in the observations buffer for calculating reward and updating neural network. reset_idx . Anything that should be applied to the agent on reset can be added here (eg. randomization, initial pose, initial DOF states) . pre_physics_step . This step occurs after the network has been updated and has outputted an action. This action can be applied to control the agent here (eg. position/velocity/effort control of DOFs). Physics simulation happens after this step. post_physics_step . This step occurs after any physics simulation has finished. Observations and rewards are computed here for the next step. ",
+    "url": "http://localhost:4000/pages/usage/training.html#trainpy",
+    "relUrl": "/pages/usage/training.html#trainpy"
+  },"56": {
     "doc": "Model Training",
     "title": "Model Training",
     "content": " ",
     "url": "http://localhost:4000/pages/usage/training.html",
     "relUrl": "/pages/usage/training.html"
-  },"50": {
+  },"57": {
     "doc": "Two-Wheel Inverted Pendulum",
     "title": "Two-wheeled Inverted Pendulum Dynamics",
     "content": "The TWIP is by construction an inverted pendulum that is no longer fixed at a single point. While fairly easy to design an implement, analysis of this system leads to a set of coupled non-linear equations. Notably, the principles behind the TWIP are present in a large number of other systems (Rockets, Bipedal, Segways). As a result, designing an efficient controller for this system has been an active area of research. However, the TWIP belongs to a set of underactuated robots, which implies that it is inherently unstable (without an active controller) and coupled with the non-intuitive nature of the dynamics, it is a challenge to design a robust controller. The analysis of the TWIP can begin with a simple free body diagram. The system can be analyzed in 2D to simplify the problem slightly. Analyze each component (body &amp; wheel) separately. Equations for each Wheel . \\[\\begin{align} \\ddot{x}m_{w} &amp;= f_{f} - f_{x}\\\\ \\ddot{y}m_{w} &amp;= f_N - f_y - m_{w}g = 0\\\\ I_{w}\\ddot{\\psi} &amp;= -f_{f}r + T_{m} \\end{align}\\] Equations for pole . \\[\\begin{align} \\ddot{x}_{p}m_{p} &amp;= 2f_{x}\\\\ \\ddot{y}_{p}m_{p} &amp;= 2f_y - m_{p}g = 0\\\\ I_{p}\\ddot{\\gamma} &amp;= 2 f_{y}\\ell \\sin(\\gamma) -2 f_{x}\\ell \\cos(\\gamma) + 2T_{m} \\end{align}\\] The relationship between wheel rotation (\\(\\psi\\)) and wheel linear displacement (\\(x\\)) is \\(\\begin{align} x &amp;=\\psi r\\\\ \\dot{x} &amp;=\\dot{\\psi}r\\\\ \\ddot{x} &amp;=\\ddot{\\psi}r \\end{align}\\) . The center of gravity is displaced as governed by \\(\\begin{align} x_{p} &amp;= x - \\ell\\sin(\\gamma)\\\\ y_{p} &amp;= \\ell\\cos(\\gamma) \\end{align}\\) . Taking time derivatives, \\(\\begin{align} \\dot{x}_{p} &amp;= \\dot{x} - \\dot{\\gamma}\\ell\\cos(\\gamma)\\\\ \\ddot{x}_{p} &amp;=\\ddot{x} -\\ell\\ddot{\\gamma}\\cos(\\gamma)+\\ell\\dot{\\gamma}^2\\sin(\\gamma)\\\\ \\dot{y}_{p} &amp;= -\\dot{\\gamma}\\ell\\sin(\\gamma)\\\\ \\ddot{y}_{p} &amp;= -\\ell\\ddot{\\gamma}\\sin(\\gamma)-\\ell\\dot{\\gamma}^2\\cos(\\gamma \\end{align}\\) . Simplifying a little … \\(\\begin{align} I_{p}\\ddot{\\gamma} &amp;= m_p g\\ell \\sin(\\gamma) - \\ddot{x}_{p}m_{p}\\ell \\cos(\\gamma) +2T_{m}\\\\ &amp;= m_p g\\ell \\sin(\\gamma) - (\\ddot{x}-\\ell\\ddot{\\gamma}\\cos(\\gamma)+\\ell\\dot{\\gamma}^2\\sin(\\gamma))m_{p}\\ell \\cos(\\gamma) +2T_{m}\\\\ I_{p}\\ddot{\\gamma} &amp;=2 T_m + m_p g\\ell \\sin(\\gamma) - \\ddot{x} m_{p}\\ell \\cos(\\gamma)\\\\ &amp;+m_{p}\\ell^2\\ddot{\\gamma}\\cos^2(\\gamma) -m_{p}\\ell^2\\dot{\\gamma}^2\\sin(\\gamma)\\cos(\\gamma) \\end{align}\\) . Simplifying further … \\(\\begin{align} I_{w}\\ddot{\\psi} &amp;= -(\\ddot{x}m_{w} + f_{x}) r + T_{m}\\\\ I_{w}\\ddot{\\psi} &amp;= -(\\ddot{x}m_{w} + \\dfrac{\\ddot{x}_{p}m_{p}}{2}) r + T_{m}\\\\ I_{w}\\dfrac{\\ddot{x}}{r} &amp;= -\\ddot{x}m_{w}r -\\ddot{x}_{p}\\dfrac{m_{p}r}{2} + T_{m}\\\\ I_{w}\\dfrac{\\ddot{x}}{r} &amp;= -\\ddot{x}m_{w}r -(\\ddot{x}-\\ell\\ddot{\\gamma}\\cos(\\gamma)+\\ell\\dot{\\gamma}^2\\sin(\\gamma))\\dfrac{m_{p}r}{2} + T_{m}\\\\ I_w\\ddot{x} &amp;=T_m r - \\ddot{x}m_{w}r^2 - \\ddot{x} \\dfrac{m_{p}r^2}{2} - \\ell\\dot{\\gamma}^2\\sin(\\gamma)\\dfrac{m_{p}r^2}{2} +\\ell\\ddot{\\gamma}\\cos(\\gamma) \\dfrac{m_{p}r^2}{2}\\\\ I_w\\ddot{x} &amp;=T_m r - (m_{w} + \\dfrac{m_{p}}{2})\\ddot{x}r^2 - \\left[\\dot{\\gamma}^2\\sin(\\gamma) - \\ddot{\\gamma}\\cos(\\gamma)\\right]\\dfrac{m_{p}\\ell r^2}{2} \\end{align}\\) . To understand how the torque \\(T_m\\) is generated, consider the circuit below . As the motor rotates, a potential (\\(V_b\\)) is induced which is equal to \\(V_b = K_e \\dot{\\psi}\\), where \\(K_e\\) is the emf constant. The motor torque is equal to \\(T = K_t i\\), where \\(K_t\\) is the motor torque constant. Solving for the steady state torque, . \\[\\begin{align} i &amp;= \\dfrac{V - V_b}{R} = \\dfrac{V - K_e \\dot{\\psi}}{R}\\\\ T &amp;= K_t\\dfrac{V - K_e \\dot{\\psi}}{R} \\end{align}\\] To obtain the torque \\(T_m\\), damping be considered. The final torque generated is \\(T_m =\\dfrac{K_t}{R}(V - K_e \\dot{\\psi}) - b \\dot{\\psi}\\) Note, it is assumed the moment of inertia of the motor shaft is negligible when compared to the wheel. Finally, the analysis above results in the following two equations . \\[\\begin{align} \\ddot{x} &amp;= \\dfrac{\\left[\\dfrac{K_t}{R}(V - K_e \\dot{\\psi}) - b \\dot{\\psi} \\right] r - \\left[\\dot{\\gamma}^2\\sin(\\gamma) - \\ddot{\\gamma}\\cos(\\gamma)\\right]\\dfrac{m_{p}\\ell r^2}{2}}{\\left[I_w + (m_{w} + \\dfrac{m_{p}}{2}) r^2\\right]}\\\\ \\ddot{\\gamma} &amp;= \\dfrac{2 \\left[ \\dfrac{K_t}{R}(V - K_e \\dot{\\psi}) - b \\dot{\\psi} \\right] + m_p g\\ell \\sin(\\gamma) - \\ddot{x} m_{p}\\ell \\cos(\\gamma)+m_{p}\\ell^2\\ddot{\\gamma}\\cos^2(\\gamma) -m_{p}\\ell^2\\dot{\\gamma}^2\\sin(\\gamma)\\cos(\\gamma)}{I_p} \\end{align}\\] ",
     "url": "http://localhost:4000/pages/background/twip.html#two-wheeled-inverted-pendulum-dynamics",
     "relUrl": "/pages/background/twip.html#two-wheeled-inverted-pendulum-dynamics"
-  },"51": {
+  },"58": {
     "doc": "Two-Wheel Inverted Pendulum",
     "title": "Two-Wheel Inverted Pendulum",
     "content": " ",
     "url": "http://localhost:4000/pages/background/twip.html",
     "relUrl": "/pages/background/twip.html"
-  },"52": {
+  },"59": {
     "doc": "Usage",
     "title": "Usage",
     "content": "There are two main aspects of our code base that operate independently. These are the simulation and robot software. The pages in this section detail how to train a model in simulation using our IsaacGym fork, and how to run the trained model on the TWIP robot. ",

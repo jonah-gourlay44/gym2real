@@ -2,7 +2,7 @@
 layout: default
 title: Two-Wheel Inverted Pendulum
 parent: Background
-mathjax: true
+math: mathjax3
 ---
 
 ## Two-wheeled Inverted Pendulum Dynamics
