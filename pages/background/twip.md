@@ -2,6 +2,7 @@
 layout: default
 title: Two-Wheel Inverted Pendulum
 parent: Background
+mathjax: true
 ---
 
 ## Two-wheeled Inverted Pendulum Dynamics
@@ -26,6 +27,7 @@ $$
 $$
 
 Equations for pole
+
 $$
 \begin{align}
     \ddot{x}_{p}m_{p} &= 2f_{x}\\
@@ -34,7 +36,7 @@ $$
 \end{align}
 $$
 
-The relationship between wheel rotation ($\psi$) and wheel linear displacement ($x$) is
+The relationship between wheel rotation (\\(\psi\\)) and wheel linear displacement (\\(x\\)) is
 $$
 \begin{align}
     x &=\psi r\\
@@ -83,13 +85,13 @@ $$
 \end{align}
 $$
 
-To understand how the torque $T_m$ is generated, consider the circuit below
+To understand how the torque \\(T_m\\) is generated, consider the circuit below
 
 <p align="center">
 <img src="../../resources/images/Motor_model.png" alt="motor_model" width="400"/>
 </p>
 
-As the motor rotates, a potential ($V_b$) is induced which is equal to $V_b = K_e \dot{\psi}$, where $K_e$ is the emf constant. The motor torque is equal to $T = K_t i$, where $K_t$ is the motor torque constant. Solving for the steady state torque,
+As the motor rotates, a potential (\\(V_b\\)) is induced which is equal to \\(V_b = K_e \dot{\psi}\\), where \\(K_e\\) is the emf constant. The motor torque is equal to \\(T = K_t i\\), where \\(K_t\\) is the motor torque constant. Solving for the steady state torque,
 
 $$
 \begin{align}
@@ -98,7 +100,7 @@ $$
 \end{align}
 $$
 
-To obtain the torque $T_m$, damping be considered. The final torque generated is
+To obtain the torque \\(T_m\\), damping be considered. The final torque generated is
 $$ T_m =\dfrac{K_t}{R}(V - K_e \dot{\psi}) - b \dot{\psi}$$
 Note, it is assumed the moment of inertia of the motor shaft is negligible when compared to the wheel.
 

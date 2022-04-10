@@ -1,7 +1,6 @@
+compress_html:
+  blanklines: true
 remote_theme: just-the-docs/just-the-docs
 color_scheme: light
 gh_edit_branch: "gh-pages"
 github: [metadata]
-markdown: kramdown
-kramdown:
-    math_engine: katex

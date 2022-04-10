@@ -84,7 +84,7 @@ The full set of deliverables, downloadable and viewable through our website (sca
 
 
 
-![CAD](resources/images/TWIP_CAD.png)
+<!-- ![CAD](resources/images/TWIP_CAD.png) -->
 
 <!-- ## Welcome to GitHub Pages
 
