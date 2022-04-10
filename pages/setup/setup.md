@@ -14,9 +14,9 @@ In this section we will guide you through the process of building and configurin
 
 | Item                                          | Quantity | Source |
 |:----------------------------------------------|:---------|:---------|
-| Nvidia Jetson Nano Developer Kit              | 1        | [src]()   |
-| Micro USB to USB Cable                        | 1        | [src]()   |
-| Micro SD Card (30 GB minimum)                 | 1        | [src]()   |
+| Nvidia Jetson Nano Developer Kit              | 1        |    |
+| Micro USB to USB Cable                        | 1        |    |
+| Micro SD Card (30 GB minimum)                 | 1        |    |
 | MPU-6050 Gyro and Acelerometer                | 1        | [src](https://www.amazon.ca/Gikfun-MPU-6050-Accelerometer-Gyroscope-EK1091x3C/dp/B07JPK26X2)   |   
 | Lynxmotion 12V 1:26.9 Brushed Motor w/ Encoder| 2        | [src](https://www.robotshop.com/en/lynxmotion-12v-80-rpm-4777oz-in-1269-brushed-dc-gear-motor-encoder.html)   |            
 | MD10C R3 - Motor Driver                       | 2        | [src](https://images-na.ssl-images-amazon.com/images/I/A1TemgvjKjL.pdf)   |
@@ -29,5 +29,11 @@ In this section we will guide you through the process of building and configurin
 | Devantech 125mm Wheel                         | 2        | [src](https://www.robotshop.com/en/devantech-125mm-wheel.html)   |
 | HCL8-12 Jumpers                               | 1        | [src](https://www.digikey.ca/en/products/detail/altech-corporation/HCL8-12/8547041?s=N4IgjCBcoCwOxVAYygMwIYBsDOBTANCAPZQDaIMAbHAEwwAcIhAzDAKzOVsgC6hADgBcoIAMqCATgEsAdgHMQAX0L0AnIhApIGHAWJlw9ODAh8QQkeOnylixUA)   |
 | RA11131121 Switch                             | 2        | [src](https://www.digikey.ca/en/products/detail/e-switch/RA11131121/2720267)   |
+| NEMA17 motor bracket      | 2 | [src](https://www.robotshop.com/ca/en/stepper-motor-mounting-bracket-nema-17.html) |
+| 2-56x1/2 bolt + lock washer + nut | 8 | |
+| 2-56x5/8 bolt + lock washer + nut | 2 | |
+| M6x20 + washer + nut | 4 | |
+| M3x8 + lock washer + nut | 8 | |
+| M2.5x8 + lock washer + nut | 2 | |
 
 
