@@ -5,7 +5,7 @@ parent: Memory
 grand_parent: Documentation
 ---
 
-The `MemoryManager` class can preallocate buffers and controllers from a configuration file.
+The `MemoryManager` class can preallocate buffers and controllers from a YAML configuration file.
 
 # YAML Configuration
 ## Buffers
