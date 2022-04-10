@@ -85,10 +85,23 @@ public:
         {
             if (it->second["type"].as<std::string>() == "onnx")
             {
-                auto & dict = it->second;
+                auto &dict = it->second;
                 controllers_.emplace(
                     it->first,
-                    std::make_shared<OnnxController>(dict["observations"].as<int>(),dict["actions"].as<int>(),dict["model_path"].as<std::string>()));
+                    std::make_shared<OnnxController>(dict["observations"].as<int>(), dict["actions"].as<int>(), dict["model_path"].as<std::string>()));
+            }
+            else if (it->second["type"].as<std::string>() == "pid")
+            {
+                auto &dict = it->second;
+
+                controllers_.emplace(
+                    it->first,
+                    std::make_shared<PidController>(
+                        dict["observations"].as<int>(),
+                        dict["actions"].as<int>(),
+                        dict["kp"].as<std::vector<float>>(),
+                        dict["ki"].as<std::vector<float>>(),
+                        dict["kd"].as<std::vector<float>>()));
             }
         }
     }
@@ -107,9 +120,11 @@ public:
             errExit("munlockall");
     }
 
-    std::experimental::optional<std::shared_ptr<BaseController>> getController(const std::string & name){
+    std::experimental::optional<std::shared_ptr<BaseController>> getController(const std::string &name)
+    {
         auto it = controllers_.find(name);
-        if (it == controllers_.end()) return std::experimental::nullopt;
+        if (it == controllers_.end())
+            return std::experimental::nullopt;
         return it->second;
     }
 
@@ -133,6 +148,7 @@ public:
         ptr = (T *)p;
         return size;
     }
+
 private:
     MemoryConfig cfg_;
     std::map<std::string, std::shared_ptr<BaseController>> controllers_;

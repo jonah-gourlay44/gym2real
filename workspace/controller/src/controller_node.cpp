@@ -93,6 +93,8 @@ ControllerNode::ControllerNode() : Node("controller"), memory_manager_("cfg/conf
     RCLCPP_INFO(get_logger(), "1121");
     // Set up wall timer
     // TODO: https://github.com/machines-in-motion/real_time_tools
+
+    last_time_ = std::chrono::high_resolution_clock::now();
     auto control_loop_time = 5ms;
     control_loop_timer_ = create_wall_timer(control_loop_time, std::bind(&ControllerNode::control_loop, this));
 }
@@ -126,7 +128,10 @@ void ControllerNode::motor_command_publish()
 
 void ControllerNode::control_loop()
 {
-    model_controller_->run();
+    auto now = std::chrono::high_resolution_clock::now();
+    float dt = std::chrono::duration_cast<std::chrono::microseconds>(now - last_time_).count() / 1e6;
+    last_time_ = std::chrono::high_resolution_clock::now();
+    model_controller_->run(dt);
     RCLCPP_INFO(get_logger(), std::to_string(motor_command_[0]));
     motor_command_publish();    
 }

@@ -9,3 +9,11 @@ controllers:
     model_path: cfg/Twip.pth.onnx
     observations: 2
     actions: 1
+
+  Twip2:
+    type: pid
+    observations: 2
+    actions: 1
+    kp: [1, 1]
+    ki: [0, 0]
+    kd: [0, 0]
