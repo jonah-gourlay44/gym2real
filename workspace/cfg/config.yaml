@@ -7,5 +7,5 @@ controllers:
   Twip1:
     type: onnx
     model_path: cfg/Twip.pth.onnx
-    observations: 3
+    observations: 2
     actions: 1

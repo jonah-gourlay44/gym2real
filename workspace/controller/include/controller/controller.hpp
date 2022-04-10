@@ -10,17 +10,14 @@
 #include <controller/transform.hpp>
 
 /** Controllers should be defined with relevant transforms/remaps
- *  Should be used whenever data is being copied 
- *  
  *  Example:
  * 
  *  `
- *  - BalanceController:
+ *  - Twip1:
  *      observations: 4 # Number of observations
  *      actions: 2 # Number of actions
- *      transforms:
- *          - transform_1
- *          - transform_2
+ *      type: onnx
+ *      model_path: cfg/Twip.pth.onnx
  *  `
  */
 class BaseController
@@ -97,7 +94,20 @@ public:
 
     int init()
     {
-        session_ = Ort::Session{env_, model_path_.c_str(), Ort::SessionOptions{nullptr}};
+        Ort::SessionOptions options;
+        OrtCUDAProviderOptions cuda_options;
+        // Have to manually initialize options in older versions of OnnxRuntime
+        cuda_options.device_id = 0;
+        cuda_options.cudnn_conv_algo_search = EXHAUSTIVE;
+        cuda_options.gpu_mem_limit = SIZE_MAX;
+        cuda_options.arena_extend_strategy = 0;
+        cuda_options.do_copy_in_default_stream=0;
+        cuda_options.has_user_compute_stream = 0;
+        cuda_options.user_compute_stream = nullptr;
+        cuda_options.default_memory_arena_cfg = nullptr;
+        options.AppendExecutionProvider_CUDA(cuda_options);
+
+        session_ = Ort::Session{env_, model_path_.c_str(), options};
         input_shape_ = {observations_};
         output_shape_ = {actions_};
 

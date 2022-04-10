@@ -18,6 +18,11 @@ endif()
 # find dependencies
 find_package(ament_cmake REQUIRED)
 
+include_directories(
+  include
+  /usr/local/include
+)
+
 add_library(device
   src/imu.cpp
 )
@@ -29,6 +34,9 @@ target_include_directories(device PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
 
+
+ament_export_targets(deviceTargets HAS_LIBRARY_TARGET)
+
 install(TARGETS device
   DESTINATION lib/${PROJECT_NAME}
 )
@@ -36,16 +44,18 @@ install(DIRECTORY include/
   DESTINATION include/
 )
 
-include_directories(
-  include
-  /usr/local/include
+install(
+  TARGETS device
+  EXPORT deviceTargets
+  LIBRARY DESTINATION lib
+  ARCHIVE DESTINATION lib
+  RUNTIME DESTINATION bin
+  INCLUDES DESTINATION include
 )
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   ament_lint_auto_find_test_dependencies()
 endif()
-
-ament_export_include_directories(include)
 
 ament_package()

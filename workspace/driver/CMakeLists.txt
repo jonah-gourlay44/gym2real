@@ -23,14 +23,18 @@ find_package(JetsonGPIO REQUIRED)
 find_package(Boost REQUIRED)
 find_package(device REQUIRED)
 
+include_directories(
+  include
+  /usr/include
+  ${BOOST_INCLUDE_DIRS}
+)
+
 add_library(driver
   src/imu_driver.cpp
   src/motor_driver.cpp
 )
 target_link_libraries(driver
   JetsonGPIO::JetsonGPIO
-  imu
-  /usr/lib/libi2c.a
   ${BOOST_LIBRARIES}
 )
 
@@ -39,19 +43,27 @@ target_include_directories(driver PUBLIC
   $<INSTALL_INTERFACE:include>
 )
 
+ament_target_dependencies(driver rclcpp sensor_msgs device)
+ament_export_targets(driverTargets HAS_LIBRARY_TARGET)
+ament_export_dependencies(device JetsonGPIO)
+
+
 install(TARGETS driver
-  DESTINATION lib/${PROJECT_NAME})
-install(DIRECTORY include
+  DESTINATION lib/${PROJECT_NAME}
+)
+  
+install(DIRECTORY include/
   DESTINATION include/
 )
 
-include_directories(
-  include
-  /usr/include
-  ${BOOST_INCLUDE_DIRS}
+install(
+  TARGETS driver
+  EXPORT driverTargets
+  LIBRARY DESTINATION lib
+  ARCHIVE DESTINATION lib
+  RUNTIME DESTINATION bin
+  INCLUDES DESTINATION include
 )
-
-ament_target_dependencies(driver rclcpp sensor_msgs device)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)

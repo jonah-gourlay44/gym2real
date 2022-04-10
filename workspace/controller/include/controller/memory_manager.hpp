@@ -65,7 +65,7 @@ public:
             void *ptr;
 
             /* create the shared memory object */
-            shm_fd = shm_open(name, O_CREAT | O_RDWR, S_IRUSR | S_IWUSR | S_IXUSR);
+            shm_fd = shm_open(name, O_CREAT | O_RDWR, S_IRWXU | S_IRWXO);
             if (shm_fd == -1)
                 errExit("shm_open");
 
@@ -115,11 +115,11 @@ public:
 
     // rw=0 for read, rw=1 for write
     template <class T>
-    int create_buffer(const char *name, const int &rw, T *&ptr, size_t size)
+    int create_buffer(const char *name, const int &rw, T *&ptr)
     {
         /* size (in bytes) of shared memory segment */
-        size = cfg_.buffer_config.at(name);
-        int shm_fd = shm_open(name, O_RDWR, S_IRUSR | S_IWUSR | S_IXUSR);
+        size_t size = cfg_.buffer_config.at(name);
+        int shm_fd = shm_open(name, O_RDWR, S_IRWXU | S_IRWXO);
         if (shm_fd == -1)
             return -1;
         void *p;
@@ -131,7 +131,7 @@ public:
             return -1;
         size = size / sizeof(T);
         ptr = (T *)p;
-        return 0;
+        return size;
     }
 private:
     MemoryConfig cfg_;
