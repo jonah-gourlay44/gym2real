@@ -58,7 +58,7 @@ The first item to mount will be the terminal block. Cut the jumpers into groups 
 </p>
 
 ### Motor Driver
-Mount the motor drivers on the same side as the terminal blocks. Ensure you have a pair of wires which you will connect to the terminal block later.
+Mount the motor drivers on the same side as the terminal blocks. Ensure you have a pair of wires which you will connect to the terminal block later. Use M2.5x20 bolts for mounting.
 
 <p align="center">
 <img src="../../resources/images/IMG_2533.png" alt="motor driver" width="200"/>
@@ -66,7 +66,7 @@ Mount the motor drivers on the same side as the terminal blocks. Ensure you have
 </p>
 
 ### Central Electronics Board
-On the opposite side of the middle wall, you will mount the main PCB that wire mounts are connected to. The regulator should be placed on the same side as the terminal block.
+On the opposite side of the middle wall, you will mount the main PCB that wire mounts are connected to. The regulator should be placed on the same side as the terminal block. Mount on three corners using M2.5x20 bolts.
 
 <p align="center">
 <img src="../../resources/images/IMG_2535.png" alt="pcb" width="200"/>
@@ -75,7 +75,7 @@ On the opposite side of the middle wall, you will mount the main PCB that wire m
 </p>
 
 ### Battery Holders
-3D print the battery holders with supports using your favourite 3D printer. Insert the fuse holder, battery connecter and switch into their slots and solder some connections as shown.
+3D print the battery holders with supports using your favourite 3D printer. Insert the fuse holder, battery connecter and switch into their slots and solder some connections as shown. Mount the battery holders using 2-56x1/2 or similar bolts.
 
 <p align="center">
 <img src="../../resources/images/IMG_3D_batt_holder.png" alt="batt holder" width="200"/>
@@ -97,7 +97,7 @@ Mount the motor onto the L-bracket mount using some M3 bolts. Insert the wheel o
 </p>
 
 ### Jetson & Rest
-Finally, mount the Jetson on the same side as the central PCB. Place the Jetson near the side to ensure access. At this point you can optionally add the support legs (first remove the terminal block to get access) using M5 bolts.
+Finally, mount the Jetson on the same side as the central PCB. Place the Jetson near the side to ensure access. At this point you can optionally add the support legs (first remove the terminal block to get access) using M5 bolts. The Jeston should be mounted using M2.5x20 bolts. The IMU should be mounted at the bottom with M2.5x8 bolts and an JST style connector can be made for it.
 
 <p align="center">
 <img src="../../resources/images/IMG_final.png" alt="final" width="200"/>
