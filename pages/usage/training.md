@@ -33,3 +33,26 @@ Create a new folder called `tasks/{task_name}`. The following files will be need
 ### Exporting ONNX
 - `python export.py task={task_name} checkpoint="runs/{TaskName}/nn/{checkpoint_name}.pth"` to export
 - Model is exported to `runs/{TaskName}/nn/{checkpoint_name}.pth.onnx`
+
+## `train.py`
+
+### `__init__`
+Loads configured parameters and sets up tensors.
+
+### `_create_envs`
+Loads assets and creates agents. DOFs (joints) and rigid bodies (links) are configured here.
+
+### `compute_reward`
+Calculates reward from observations.
+
+### `compute_observations`
+Data from environments are placed in the observations buffer for calculating reward and updating neural network.
+
+### `reset_idx`
+Anything that should be applied to the agent on reset can be added here (eg. randomization, initial pose, initial DOF states)
+
+### `pre_physics_step`
+This step occurs after the network has been updated and has outputted an action. This action can be applied to control the agent here (eg. position/velocity/effort control of DOFs). Physics simulation happens after this step.
+
+### `post_physics_step`
+This step occurs after any physics simulation has finished. Observations and rewards are computed here for the next step.
