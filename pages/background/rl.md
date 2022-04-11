@@ -17,4 +17,4 @@ RL algorithm learns how to act best through many attempts and failures. Trial-an
 
 So, the key goal of reinforcement learning used today is to define the best sequence of decisions that allow the agent to solve a problem while maximizing a long-term reward. And that set of coherent actions is learned through the interaction with environment and observation of rewards in every state.
 
-(https://www.altexsoft.com/blog/datascience/reinforcement-learning-explained-overview-comparisons-and-applications-in-business/)
+[Reference Link]https://www.altexsoft.com/blog/datascience/reinforcement-learning-explained-overview-comparisons-and-applications-in-business/)
