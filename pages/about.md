@@ -14,5 +14,5 @@ We are a group of Engineering Physics students from The University of British Co
 - Jonah Gourlay: jonah.gourlay33@gmail.com
 - Kevin Huang: kevin@khuang.ca
 - Bereket Guta: https://bguta.github.io/
-- Kobe Ng:
-- Daniel Backhouse: 
+- Kobe Ng: kobeng@live.ca
+- Daniel Backhouse: daniel.backhouse@alumni.ubc.ca

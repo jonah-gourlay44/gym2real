@@ -6,9 +6,11 @@ grand_parent: Documentation
 nav_order: 4
 ---
 
+# TransformRule
+
 When using encapsulated modules, data can often be in non-contiguous memory or in a heterogeneous formats. Controllers require inputs to be in a specific format and order and the outputs may not be directly usable. `TransformRule` objects allow for copying of data from an input buffer to an output buffer while applying arbitrary operations. 
 
-# `RemapRule`
+## `RemapRule`
 Takes in a lambda function to be applied on the buffers.
 
 ## `RangeRemapRule`
