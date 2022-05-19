@@ -4,6 +4,12 @@ title: Home
 nav_order: 1
 ---
 
+<p align="center">
+<video controls autoplay>
+<source src="../../resources/videos/balanceclip.mp4" type="video/mp4">
+</video>
+</p>
+
 # Overview
 
 ## Sim2Real
